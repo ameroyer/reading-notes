@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-04-26T17:14:05+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Your awesome title</title><subtitle>Wrfdfsdte an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/jekyll/update/2019/04/26/welcome-to-jekyll-(copy).html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2019-04-26T14:59:24+02:00</published><updated>2019-04-26T14:59:24+02:00</updated><id>http://localhost:4000/jekyll/update/2019/04/26/welcome-to-jekyll%20(copy)</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2019/04/26/welcome-to-jekyll-(copy).html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+
+&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+
+&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry><entry><title type="html">LaSO: Label-Set Operations networks for multi-label few-shot learning</title><link href="http://localhost:4000/reading_notes/2019/04/26/laso_label_set_operations_networks_for_multi_label_few_shot_learning.html" rel="alternate" type="text/html" title="LaSO: Label-Set Operations networks for multi-label few-shot learning" /><published>2019-04-26T14:59:24+02:00</published><updated>2019-04-26T14:59:24+02:00</updated><id>http://localhost:4000/reading_notes/2019/04/26/laso_label_set_operations_networks_for_multi_label_few_shot_learning</id><content type="html" xml:base="http://localhost:4000/reading_notes/2019/04/26/laso_label_set_operations_networks_for_multi_label_few_shot_learning.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+
+&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+
+&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><category term="Few-Shot Learning" /><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry><entry><title type="html">Measuring abstract reasoning in neural networks</title><link href="http://localhost:4000/jekyll/update/2019/04/26/welcome-to-jekyll-(copy).html" rel="alternate" type="text/html" title="Measuring abstract reasoning in neural networks" /><published>2019-04-26T14:59:24+02:00</published><updated>2019-04-26T14:59:24+02:00</updated><id>http://localhost:4000/jekyll/update/2019/04/26/welcome-to-jekyll%20(copy)</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2019/04/26/welcome-to-jekyll-(copy).html">&lt;h2 id=&quot;-----measuring-abstract-reasoning-in-neural-networks&quot;&gt;⚫ ⚫ ⚫ ⚪ ⚪ Measuring abstract reasoning in neural networks&lt;/h2&gt;
+&lt;h4 id=&quot;barrett-et-al-icml-2018-link&quot;&gt;Barrett et al., ICML 2018 &lt;a href=&quot;https://arxiv.org/pdf/1807.04225.pdf&quot;&gt;[link]&lt;/a&gt;&lt;/h4&gt;
+
+&lt;h3 id=&quot;summary&quot;&gt;Summary&lt;/h3&gt;
+
+&lt;p&gt;The authors introduce a new visual analogy dataset with the aim to analyze the reasoning abilities of ConvNets on higher abstract reasoning tasks such as small IQ tests.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Pros (+):&lt;/strong&gt; Introduces a new dataset for abstract reasoning and different evaluation procedures, considers a large range of baselines.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Cons(+):&lt;/strong&gt; The Relation Network considers only pairwise interactions which is simple yet might be too specific to the problem at hand. Also hard to interpret and measure actual reasoning of the network.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;dataset&quot;&gt;Dataset&lt;/h3&gt;
+
+&lt;p&gt;This paper introduces  the &lt;em&gt;Procedurally Generated Matrices&lt;/em&gt; (PGM) dataset. It is based on &lt;strong&gt;&lt;em&gt;Raven’s Progressive Matrices (RPM)&lt;/em&gt;&lt;/strong&gt; introduced by psychologist John Raven in 1936. Given an incomplete &lt;strong&gt;&lt;em&gt;3x3&lt;/em&gt;&lt;/strong&gt; matrix (missing the bottom right panel), the goal is to complete the matrix with an image picked &lt;strong&gt;&lt;em&gt;out of 8 candidates&lt;/em&gt;&lt;/strong&gt;. Typically, several candidates are plausible but the subject has to select the one with the strongest justification.&lt;/p&gt;
+
+&lt;center&gt;&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=1Nd7QA5574NeXmSimxhD1b4THfbYnXy_E&quot; /&gt;&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;construction&quot;&gt;Construction&lt;/h4&gt;
+
+&lt;p&gt;A PGM is defined as a set of triples $(r, o, a)$, each encoding a particular relation. For instance (&lt;code class=&quot;highlighter-rouge&quot;&gt;progression&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;lines&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;number&lt;/code&gt;) means that the PGM contains a progression relation on the number of lines. In practice, the PGM dataset only contains &lt;strong&gt;&lt;em&gt;1 to 4&lt;/em&gt;&lt;/strong&gt; relations per PGM. The construction primitives are as follows:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;relation types&lt;/strong&gt; ($R$, with elements $r$): &lt;code class=&quot;highlighter-rouge&quot;&gt;progression&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;XOR&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;OR&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;AND&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;consistent union&lt;/code&gt;. The only relation that might require beyong binary correspondencies is the consistent union.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;object types&lt;/strong&gt; ($O$, with elements $o$): &lt;code class=&quot;highlighter-rouge&quot;&gt;shape&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;lines&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;attribute types&lt;/strong&gt; ($A$, with elements $a$): &lt;code class=&quot;highlighter-rouge&quot;&gt;size&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;type&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;colour&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;position&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;number&lt;/code&gt;. Each attribute takes values in a discrete set (e.g. 10 levels of gray intensity for colour).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Note that some relations are hard to define (for instance progresson on shape position ?), and hence ignored. In total, &lt;strong&gt;&lt;em&gt;29&lt;/em&gt;&lt;/strong&gt; possible relations triples are considered.&lt;/p&gt;
+
+&lt;p&gt;The attributes which are not involved in any of the relations of the PGM are called the &lt;strong&gt;&lt;em&gt;nuisance attributes&lt;/em&gt;&lt;/strong&gt;. They are chosen either as a fixed value for all images in the squence, or randomly assigned (&lt;strong&gt;&lt;em&gt;distracting setting&lt;/em&gt;&lt;/strong&gt;).&lt;/p&gt;
+
+&lt;h4 id=&quot;evaluation-setting&quot;&gt;Evaluation Setting&lt;/h4&gt;
+&lt;p&gt;The authors consider 8 generalization settings to evaluate on:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Neutral setting.&lt;/strong&gt; Standard random train/test split, no constraint on the relations&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Interpolation&lt;/strong&gt; and &lt;strong&gt;Extrapolation.&lt;/strong&gt; The values of the &lt;code class=&quot;highlighter-rouge&quot;&gt;colour&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;size&lt;/code&gt; attributes are restricted to half the possible values in the training set, and take values in the remaining half options in the test set. Note that in this setting, the test set is built such that every sequence contains one of these two attributes, i.e. generalization is required for every image. The different between inter- and extrapolation lies in the &lt;strong&gt;&lt;em&gt;discretized space split&lt;/em&gt;&lt;/strong&gt;: For interpolation, the split is uniform across the support (even-indexed values vs. odd-indexed values). In extrapolation, the values are split between lower half of the space and upper half of the space.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Held-out setting.&lt;/strong&gt; As the name indicates, this evaluation setting consists in keeping certain relations out of the training set and considering them only at test time (each of the test question contains at least one of the kept-out relations).&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;shape-colour.&lt;/em&gt; Keep out any relation with $o=$ &lt;code class=&quot;highlighter-rouge&quot;&gt;shape&lt;/code&gt; and $a =$ &lt;code class=&quot;highlighter-rouge&quot;&gt;colour&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;line-type.&lt;/em&gt; Keep out any relation with $o=$ &lt;code class=&quot;highlighter-rouge&quot;&gt;line&lt;/code&gt; and $a =$ &lt;code class=&quot;highlighter-rouge&quot;&gt;type&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;triples&lt;/em&gt;. Take out &lt;strong&gt;seven&lt;/strong&gt; relation triples (chosen such that every attribute is represented exactly once (&lt;strong&gt;?: but there’s only five attributes&lt;/strong&gt;)).&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;pairs of triples&lt;/em&gt;. Same as before but considering pairs of triples this time and only generating PGM with at least two relations: in that way, some relation interactions will have never been seen on training time.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;pairs of attributes&lt;/em&gt;. Same as before but at the attribute level&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;baselines&quot;&gt;Baselines&lt;/h3&gt;
+&lt;p&gt;The main contributions of the paper are to introduce the PGM dataset and evaluate several standard deep architectures on it:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;CNN-MLP:&lt;/strong&gt; A standard 4-layers CNN, followed by 2 fully connected layers. It takes as inputs the 8 context panels of the matrix and the 8 panel candidates concatenated on the channel axis: i.e., inputs to the model are 80x80x16 images. It outputs the labels of the correct panels (8-labels classification task).&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;ResNet.&lt;/strong&gt; Same as before but with a ResNet architecture.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Wild resNet.&lt;/strong&gt; This time, the candidate panels are fed separately (i.e. 8 different input, each as a 9 channel image) and a score is output for each one of them. The candidate with the higest score is chosen.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Context-blind ResNet.&lt;/strong&gt; Rather a “sanity check” than a baseline, train a ResNet that only takes the candidate panels as inputs, no context.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;LSTM.&lt;/strong&gt; First, each of the 16 panels is fed independently through a 4-layers CNN and the output feature maps is tagged with an index (following the sequence order). This sequence is fed through a LSTM, whose final hidden state is passed through one linear layer for the final classification.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;RN network.&lt;/strong&gt; The authors propose a Relation Network based on recent work  [1]. Each context panel and candidate is fed through a CNN resulting in embeddings ${x_1 \dots x_8}$ and  ${c_1 \dots c_8}$ respectively. Then for each candidate panel $k$, the Relation Network outputs a score $s_k$:&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;\begin{align}
+s_k = f_{\phi} \left( \sum_{x, y \in {x_1 \dots x_8, c_k}^2 } g_{\theta}(x, y) \right)
+\end{align}&lt;/p&gt;
+
+&lt;p&gt;Additionally, they consider a semi-supervised variant where the model tries to additionally predict the relations  underlying the PGM (encoded as a one-hot vector) as a &lt;strong&gt;&lt;em&gt;meta-target&lt;/em&gt;&lt;/strong&gt;. The total loss is a weighted average between the candidate classification loss term and the meta-target regression loss term.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;experiments&quot;&gt;Experiments&lt;/h3&gt;
+
+&lt;h4 id=&quot;overall-results&quot;&gt;Overall results&lt;/h4&gt;
+
+&lt;p&gt;The CNN-based  models perform consistantly badly, while LSTM provides an improvement but a small one. The Wild ResNet provides futher improvement over ResNet, which shows that using a panel scoring structure is more beneficial than direct classification of the correct candidate. Finally &lt;strong&gt;&lt;em&gt;WReN outperforms all other baselines&lt;/em&gt;&lt;/strong&gt;, which could be expected as it makes use of pairwise interactions across panels. The main benefit of the method is its simplicity (&lt;em&gt;Note:&lt;/em&gt; it could be interesting to compare agains other sequential architecture on ResNet).&lt;/p&gt;
+
+&lt;h3 id=&quot;different-evaluation-procedure&quot;&gt;Different evaluation procedure&lt;/h3&gt;
+
+&lt;p&gt;While the WReN achives satisfying accuracy on the &lt;strong&gt;neutral&lt;/strong&gt; and &lt;strong&gt;interpolation&lt;/strong&gt; splits (~ 60%), as one would expect this does not hold for the more challenging settings, e.g. it significantly drops to 17% on the &lt;strong&gt;&lt;em&gt;extrapolation&lt;/em&gt;&lt;/strong&gt; setting.&lt;/p&gt;
+
+&lt;p&gt;More generally, it seems that the model &lt;strong&gt;&lt;em&gt;has troubles generalizing&lt;/em&gt;&lt;/strong&gt; when some attributes are never seen during the training, (e.g., extrapolation or attr.rels settings) which seems to indicate the model probably more easily picks visual properties rather than  high-level abstract reasoning ones.&lt;/p&gt;
+
+&lt;h4 id=&quot;detailed-results&quot;&gt;Detailed results&lt;/h4&gt;
+&lt;p&gt;The authors also report results broken down by number of relations per matrix, relation types and ttribute types(when only one relation). As one would expect, one-relation are the easiest to solve, but, interestingly, it is slightly easier to solve three-relations matrices than four-relations one, which might be because it determines a more precise answer.&lt;/p&gt;
+
+&lt;p&gt;As for relations,&lt;code class=&quot;highlighter-rouge&quot;&gt;XOR&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;progression&lt;/code&gt; are the hardest to solve although the model still performs decently well on those (50%).&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;closely-related-follow-up-work&quot;&gt;Closely related (follow-up work)&lt;/h3&gt;
+
+&lt;h4 id=&quot;1-improving-generalization-for-abstract-reasoning-tasks-using-disentangled-feature-representations&quot;&gt;1. Improving Generalization for Abstract Reasoning Tasks Using Disentangled Feature Representations.&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Steenbrugge et al., &lt;a href=&quot;https://arxiv.org/abs/1811.04784&quot;&gt;[link]&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The main observation is that the previously proposed model seems to &lt;strong&gt;&lt;em&gt;disregard high-level abstract relations&lt;/em&gt;&lt;/strong&gt; (e.g. considering the poor accuracy on the extrapolation set). this paper proposes to improve the encoding step by embedding the panel in a &lt;strong&gt;“disentangled”&lt;/strong&gt; space using a $\beta$-VAE. (Note the apostrophes around &lt;em&gt;disentangled&lt;/em&gt;, as, as far as I know, there is no guarantee of this property for $\beta$-VAE;  it has only been studied experimentally on specific datasets e.g. CelebA).&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;There are also a few weird details in the experimental section. For instance, they claim the RN embedding has dimension 512, while it has dimension 256 (it only becomes 512 whe concatenating in $g_{\theta}$). Second, their own VAE embedding has latent dimension 64 and it’s not clear why they wouldn’t use more dimensions fo a fairer comparison (my guess is it might lose the “disentangled” property). In the end their encoder adds two additional fully-connected layers for no apparent good reasons.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The model yields some improvement, especially on the more challenging settings (roughly 5% at best). They however omit results in the extrapolation regime, for unkown reasons.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;references&quot;&gt;References&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;[1] A simple neural network module for relational reasoning, Santoro et al., NIPS 2017&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="Visual Reasoning" /><summary type="html">⚫ ⚫ ⚫ ⚪ ⚪ Measuring abstract reasoning in neural networks Barrett et al., ICML 2018 [link]</summary></entry></feed>

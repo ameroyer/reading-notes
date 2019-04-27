@@ -1,13 +1,13 @@
 ---
 layout: post
-title:  "Measuring abstract reasoning in neural networks"
-date:   2019-04-26 14:59:24 +0200
+title: "Measuring Abstract Reasoning in Neural Networks"
+date: 2019-04-26 14:59:24 +0200
 tags: [Visual Reasoning]
-categories: jekyll update
+categories: [Visual Reasoning]
+author: Barrett et al., ICML 2018, <a href='https://arxiv.org/pdf/1807.04225.pdf' target='_blank'>[link]</a>
+
 ---
 
-## ⚫ ⚫ ⚫ ⚪ ⚪ Measuring abstract reasoning in neural networks
-#### Barrett et al., ICML 2018 [[link]](https://arxiv.org/pdf/1807.04225.pdf)
 
 ### Summary
 
@@ -19,7 +19,7 @@ The authors introduce a new visual analogy dataset with the aim to analyze the r
 
 ### Dataset
 
-This paper introduces  the *Procedurally Generated Matrices* (PGM) dataset. It is based on ***Raven’s Progressive Matrices (RPM)*** introduced by psychologist John Raven in 1936. Given an incomplete ***3x3*** matrix (missing the bottom right panel), the goal is to complete the matrix with an image picked ***out of 8 candidates***. Typically, several candidates are plausible but the subject has to select the one with the strongest justification.
+This paper introduces  the *Procedurally Generated Matrices* (PGM) dataset. It is based on *Raven’s Progressive Matrices (RPM)* introduced by psychologist John Raven in 1936. Given an incomplete ***3x3*** matrix (missing the bottom right panel), the goal is to complete the matrix with an image picked ***out of 8 candidates***. Typically, several candidates are plausible but the subject has to select the one with the strongest justification.
 
 <center><img src='https://drive.google.com/uc?export=view&id=1Nd7QA5574NeXmSimxhD1b4THfbYnXy_E'></center>
 <br>
@@ -68,9 +68,11 @@ The main contributions of the paper are to introduce the PGM dataset and evaluat
 
 * **RN network.** The authors propose a Relation Network based on recent work  [1]. Each context panel and candidate is fed through a CNN resulting in embeddings $\{x_1 \dots x_8\}$ and  $\{c_1 \dots c_8\}$ respectively. Then for each candidate panel $k$, the Relation Network outputs a score $s_k$:
 
+$$
 \begin{align}
 s_k = f_{\phi} \left( \sum_{x, y \in \{x_1 \dots x_8, c_k\}^2 } g_{\theta}(x, y) \right)
 \end{align}
+$$
 
 Additionally, they consider a semi-supervised variant where the model tries to additionally predict the relations  underlying the PGM (encoded as a one-hot vector) as a ***meta-target***. The total loss is a weighted average between the candidate classification loss term and the meta-target regression loss term.
 

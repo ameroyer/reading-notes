@@ -3,9 +3,9 @@ layout: default
 ---
 
 <body>
-  <h1> Hello </h1>
+  <h1>Table of Contents</h1>
     <ul>
-      {% for category in site.tags %}
+      {% for category in site.categories %}
       <li><a name="{{ category | first }}">{{ category | first }}</a>
 	<ul>
 	  {% for post in category.last %}

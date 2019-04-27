@@ -13,7 +13,6 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-url: ameroyer.github.io/reading-notes
 title: Reading Notes
 email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
@@ -23,6 +22,7 @@ description: >- # this means to ignore newlines until "baseurl:"
 twitter_username: jekyllrb
 github_username:  ameroyer
 repository: ameroyer/reading-notes
+baseurl: /reading-notes
 
 # Build settings
 markdown: kramdown

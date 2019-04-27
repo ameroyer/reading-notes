@@ -75,8 +75,9 @@ h1, h3, h4 {
 color: $blue
 }
 
-h1 a { 
-color: $orange
+h1 a, h1 a:hover { 
+color: $orange;
+font-weight: bold
 }
 
 strong { 
@@ -103,4 +104,35 @@ text-align: right;
 
 p.view a, p.view a:hover {
 font-weight: bold
+}
+
+h3.section:before{
+   font-family: "Font Awesome 5 Free";
+   display: inline-block;
+   padding-right: 6px;
+   vertical-align: middle;
+}
+
+h3.references:before{
+   content: "\f02d";
+}
+
+h3.experiments:before{
+   content: "\f492";
+}
+
+h3.dataset:before{
+   content: "\f03e";
+}
+
+h3.proposed:before{
+   content: "\f0eb";
+}
+
+h3.sota:before{
+   content: "\f1da";
+}
+
+h3.followup:before{
+   content: "\f04e";
 }

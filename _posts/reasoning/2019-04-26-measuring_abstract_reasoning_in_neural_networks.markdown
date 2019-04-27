@@ -8,16 +8,13 @@ author: Barrett et al., ICML 2018, <a href='https://arxiv.org/pdf/1807.04225.pdf
 
 ---
 
-
-### Summary
-
 The authors introduce a new visual analogy dataset with the aim to analyze the reasoning abilities of ConvNets on higher abstract reasoning tasks such as small IQ tests.
 * **Pros (+):** Introduces a new dataset for abstract reasoning and different evaluation procedures, considers a large range of baselines.
 * **Cons(+):** The Relation Network considers only pairwise interactions which is simple yet might be too specific to the problem at hand. Also hard to interpret and measure actual reasoning of the network.
 
 ---
 
-### Dataset
+<h3 class="section dataset"> Dataset </h3>
 
 This paper introduces  the *Procedurally Generated Matrices* (PGM) dataset. It is based on *Raven’s Progressive Matrices (RPM)* introduced by psychologist John Raven in 1936. Given an incomplete ***3x3*** matrix (missing the bottom right panel), the goal is to complete the matrix with an image picked ***out of 8 candidates***. Typically, several candidates are plausible but the subject has to select the one with the strongest justification.
 
@@ -53,7 +50,7 @@ The authors consider 8 generalization settings to evaluate on:
 
 ---
 
-### Baselines
+<h3 class="section sota"> Baselines </h3>
 The main contributions of the paper are to introduce the PGM dataset and evaluate several standard deep architectures on it:
 
 * **CNN-MLP:** A standard 4-layers CNN, followed by 2 fully connected layers. It takes as inputs the 8 context panels of the matrix and the 8 panel candidates concatenated on the channel axis: i.e., inputs to the model are 80x80x16 images. It outputs the labels of the correct panels (8-labels classification task).
@@ -78,7 +75,7 @@ Additionally, they consider a semi-supervised variant where the model tries to a
 
 ---
 
-### Experiments
+<h3 class="section experiments"> Experiments </h3>
 
 #### Overall results
 
@@ -99,7 +96,7 @@ As for relations,`XOR` and `progression` are the hardest to solve although the m
 
 ---
 
-### Closely related (follow-up work)
+<h3 class="section followup">Closely related (follow-up work)</h3>
 
 #### 1. Improving Generalization for Abstract Reasoning Tasks Using Disentangled Feature Representations.
 **Steenbrugge et al., [[link]](https://arxiv.org/abs/1811.04784)**
@@ -112,5 +109,5 @@ As for relations,`XOR` and `progression` are the hardest to solve although the m
 
 ---
 
-### References
+<h3 class="section references"> References </h3>
 * [1] A simple neural network module for relational reasoning, Santoro et al., NIPS 2017

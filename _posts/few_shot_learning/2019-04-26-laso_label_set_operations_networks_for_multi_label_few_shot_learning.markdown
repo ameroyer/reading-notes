@@ -1,26 +1,53 @@
 ---
 layout: post
-title:  "LaSO: Label-Set Operations networks for multi-label few-shot learning"
+title:  "LaSO: Label-Set Operations Networks for Multi-label Few-Shot Learning"
 date:   2019-04-26 14:59:24 +0200
-tags: [Few-Shot Learning]
-categories: "reading_notes"
+tags: [few-shot learning, 2019]
+categories:  [Few-Shot Learning]
+author: Alfassy et al., 2019, <a href='https://arxiv.org/abs/1902.09811' target='_blank'>[link]</a>
 ---
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 
-To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
 
-Jekyll also offers powerful support for code snippets:
 
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-{% endhighlight %}
+<div class="summary">
+Summary
+<ul>
+<li><span class="procons">Pros (+):</span> pros.</li>
+<li><span class="procons">Cons (-):</span> cons.</li>
+</ul>
+</div>
 
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
 
-[jekyll-docs]: https://jekyllrb.com/docs/home
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
+<h3 class="section sota"> State-of-the-art </h3>
+Stae-of-the-art
+
+---
+
+<h3 class="section proposed"> Proposed </h3>
+
+Proposed model
+
+
+---
+
+<h3 class="section dataset"> Datasets </h3>
+
+Datasets
+
+
+---
+
+<h3 class="section experiments"> Experiments </h3>
+
+Experiments
+
+---
+
+<h3 class="section followup">Closely related (follow-up work)</h3>
+
+Follow-up work
+
+---
+
+<h3 class="section references"> References </h3>
+* <span class="citations">[1]</span> title, <i>info</i>

@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: "en-US" }}">
+
+
+
   <head>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <meta charset="UTF-8">
@@ -12,8 +15,12 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
 	<![endif]-->
   </head>
+
+
+
   <body>
     <div class="wrapper">
+
       <header>
         <h1><a href="{{ "/" | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
         
@@ -21,32 +28,38 @@
         <img src="{{site.logo | relative_url}}" alt="Logo" />
         {% endif %}
 
-        <p>{{ site.description | default: site.github.project_tagline }}</p>
+        <!-- <p>{{ site.description | default: site.github.project_tagline }}</p> -->
 	
 	<ul class="nav">
 	  {% for category in site.categories %}
-	  <li class="dropdown"><a name="{{ category | first }}">{{ category | first }}</a>
+	  <li class="dropdown"><a class="category" name="{{ category | first }}">{{ category | first }}</a>
 	    <ul class="dropdown-content">
 	      {% for post in category.last %}	      
-	      <li><a href="{{ post.url | relative_url }}">{{ post.title | truncate: 40  }}</a></li>
+	      <li><a href="{{ post.url | relative_url }}">{{ post.title | truncate: 30  }}</a></li>
 	      {% endfor %}
 	    </ul>
 	  </li>
 	  {% endfor %}
 	</ul>
-
       </header>
+
+
       <section>
 
 	{{ content }}
 
       </section>
+
       <footer>
-	{% if site.github.is_project_page %}
-	<p>This project is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
-	{% endif %}
-	<p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+	<div id="social-links">
+	  <a href="https://github.com/{{ site.social_links.github | cgi_escape | escape }}" title="{{ social.github | escape }}"><i class="fab fa-github-alt"></i></a>
+	  <a href="https://pub.ist.ac.at/~aroyer/" title="ist.ac.at/~aroyer"><i class="fas fa-user-circle"></i></a>
+	</div>
+
+	<p style="margin:0">This project is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>
+	<br><small>Theme based on <i>jekyll-minimal</i>  by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
       </footer>
+
     </div>
     <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
     {% if site.google_analytics %}

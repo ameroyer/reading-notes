@@ -2,17 +2,21 @@
 layout: post
 title: "Measuring Abstract Reasoning in Neural Networks"
 date: 2019-04-26 14:59:24 +0200
-tags: [Visual Reasoning]
+tags: [visual reasoning, 2018, icml]
 categories: [Visual Reasoning]
 author: Barrett et al., ICML 2018, <a href='https://arxiv.org/pdf/1807.04225.pdf' target='_blank'>[link]</a>
-
 ---
 
-The authors introduce a new visual analogy dataset with the aim to analyze the reasoning abilities of ConvNets on higher abstract reasoning tasks such as small IQ tests.
-* **Pros (+):** Introduces a new dataset for abstract reasoning and different evaluation procedures, considers a large range of baselines.
-* **Cons(+):** The Relation Network considers only pairwise interactions which is simple yet might be too specific to the problem at hand. Also hard to interpret and measure actual reasoning of the network.
 
----
+<div class="summary">
+The authors introduce a new visual analogy dataset with the aim to analyze the <b>reasoning abilities of ConvNets</b> on higher abstract reasoning tasks such as small <b>IQ tests</b>.
+
+<ul>
+<li><span class="procons">Pros (+):</span> Introduces a new dataset for abstract reasoning and different evaluation procedures, considers a large range of baselines.</li>
+<li><span class="procons">Cons (-):</span> The Relation Network considers only pairwise interactions, might be too specific for general abstraction. Also implicit model, hard to interpret in terms of reasoning.</li>
+</ul>
+</div>
+
 
 <h3 class="section dataset"> Dataset </h3>
 
@@ -63,7 +67,7 @@ The main contributions of the paper are to introduce the PGM dataset and evaluat
 
 * **LSTM.** First, each of the 16 panels is fed independently through a 4-layers CNN and the output feature maps is tagged with an index (following the sequence order). This sequence is fed through a LSTM, whose final hidden state is passed through one linear layer for the final classification.
 
-* **RN network.** The authors propose a Relation Network based on recent work  [1]. Each context panel and candidate is fed through a CNN resulting in embeddings $\{x_1 \dots x_8\}$ and  $\{c_1 \dots c_8\}$ respectively. Then for each candidate panel $k$, the Relation Network outputs a score $s_k$:
+* **RN network.** The authors propose a Relation Network based on recent work <span class="citations">[1]</span>. Each context panel and candidate is fed through a CNN resulting in embeddings $\{x_1 \dots x_8\}$ and  $\{c_1 \dots c_8\}$ respectively. Then for each candidate panel $k$, the Relation Network outputs a score $s_k$:
 
 $$
 \begin{align}
@@ -110,4 +114,4 @@ As for relations,`XOR` and `progression` are the hardest to solve although the m
 ---
 
 <h3 class="section references"> References </h3>
-* [1] A simple neural network module for relational reasoning, Santoro et al., NIPS 2017
+* <span class="citations">[1]</span> A simple neural network module for relational reasoning, <i>Santoro et al., NIPS 2017</i>

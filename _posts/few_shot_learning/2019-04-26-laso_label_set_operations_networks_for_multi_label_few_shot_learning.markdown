@@ -17,9 +17,8 @@ In this paper, the authors tackle the problem of "multi-label few-shot learning"
 </ul>
 </div>
 
----
 
-<h3 class="section proposed"> Proposed </h3>
+<h3 class="section proposed"> The LaSO Objective</h3>
 The proposed method consists in manipulating the *semantic content* of the training images to generate new combinations of semantic labels, in particular focusing on set operations: union ($$\cup$$), intersection ($$\cap$$) and set subtraction ($$\setminus$$). Interestingly, operations such as $$\cap$$ and $$\setminus$$ could in theory shine light on *implicit semantic information*: For instance, in a task of animal classification, the operation `zebra` $$\setminus$$ `horse` describes the attribute `striped`, which is not one of the original classes.
 
 
@@ -83,5 +82,5 @@ Each LaSO network is a 3 or 4 layers standard *Multi-Layer Perceptron*. The trai
   * **MS-COCO:** The model is trained on 64 classes, while the 16 remaining ones are kept unseen. **First**, they evaluate the semantic accuracy of the label set operation networks: i.e., *do they actually capture the targeted operation* ? It seems to be the case for the intersection and union operations, as the retrieval accuracy is as good as the one achieved on the standard dataset (no manipulation). However, performance of the subtraction network or on the unseen classes are less impressive. **Second,** they evaluate the model for few-shot learning on the *unseen categories*. The proposed method outperforms a few existing baselines on this task. *Note that*, in order to evaluate the model on the unseen categories, they separately train a 16-way classifier on them, used for evaluation. This seems potentially biased as it means the model can not confuse them with already seen classes, which would be a likely source of errors.
   
   
-	  * **CelebA:** In this case, the multi-label information comes from face attributes. In this setting, they only evaluate the ability of the label set networks to capture their respective set operation. Results are a bit mitigated, as was the case for MS-COCO; only the union operation seems to be really well captured.
+  * **CelebA:** In this case, the multi-label information comes from face attributes. In this setting, they only evaluate the ability of the label set networks to capture their respective set operation. Results are a bit mitigated, as was the case for MS-COCO; only the union operation seems to be really well captured.
 

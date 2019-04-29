@@ -208,3 +208,17 @@ margin-top: 10px
 color: $orange;
 font-weight: bold
 }
+
+p:before { 
+   content: "\00a0";
+   padding-right: 5px; 
+}
+
+.figure {
+    width: 88%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 42px;
+    color: #444444;
+}
+	       

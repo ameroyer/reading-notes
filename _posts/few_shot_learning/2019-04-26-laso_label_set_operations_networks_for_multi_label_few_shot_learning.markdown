@@ -24,7 +24,7 @@ The proposed method consists in manipulating the *semantic content* of the train
 
 <div class="figure">
 <img src="{{ site.baseurl }}/images/posts/laso.png">
-<p><b>Figure:</b>  LaSO manipulates the semantic content of the data for better generalization. Suppose you wish to build a <i>multi-label classifier</i> for wild animals. You go to a zoo and take a <i>few photos</i> of each animal. But alas, all of the animals arecaged <b>(a)</b> and this few-shot trained classifier is likely to have some difficulty with the <i>generalization</i> to animals in the wild <b>(c)</b>. Note that in this case, the label ‘caged’ is not even part of the label vocabulary, which only contains animals</p>
+<p><b>Figure:</b>  LaSO manipulates the semantic content of the data for better generalization. Suppose you wish to build a <i>multi-label classifier</i> for wild animals. You go to a zoo and take a <i>few photos</i> of each animal. But alas, all of the animals are caged <b>(a)</b> and this few-shot trained classifier is likely to have some difficulty with the <i>generalization</i> to animals in the wild <b>(c)</b>. Note that in this case, the label ‘caged’ is not even part of the label vocabulary, which only contains animals</p>
 </div>
 
 

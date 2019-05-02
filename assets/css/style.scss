@@ -18,13 +18,13 @@ list-style: circle;
 padding: 0;
 border-radius: 0px;
 border: none;
-width: 120px;
+width: 150px;
 color: $orange;
 //border-bottom: #dddddd 1px solid;
 }
 
 ul.nav li {
-width: 120px;
+width: 100%;
 float: none;
 height: 25px;
 border: none;
@@ -39,7 +39,7 @@ background: #ffffff
 ul.dropdown-content {
 display: none;
 position: relative;
-left: 125px;
+left: 145px;
 top: -26px;
 width: 160px;
 list-style:none;
@@ -55,7 +55,8 @@ position: relative;
 width: 220px;
 border: none;
 background: none;
-color: $blue
+color: $blue;
+height:20px
 }
 
 // Nav hovering
@@ -71,7 +72,7 @@ padding-left: 8px;
 content: "\f152";
 display: inline-block;
 vertical-align: middle;
-left: 105px;
+left: 132px;
 position: absolute;
 }
 

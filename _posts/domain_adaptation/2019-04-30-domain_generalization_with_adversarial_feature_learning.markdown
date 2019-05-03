@@ -84,7 +84,7 @@ $$
 
 #### Semi-supervised MMD-AAE
 
-Finally, the model should learn a representation that is also adequate for the task at hand (here, classification). This is done by adding a *classifier* (two fully connected layers) on top of the representation minimizing a standard cross entropy loss term, $$\mathcal{L}_{\text{err}}$$ betwen the input image label and the model output.
+Finally, the model should learn a representation that is also adequate for the task at hand (here, classification). This is done by adding a *classifier* (two fully connected layers) on top of the representation minimizing a standard cross entropy loss term, $$\mathcal{L}_{\text{err}}$$ between the input image label and the model output.
 
 ---
 

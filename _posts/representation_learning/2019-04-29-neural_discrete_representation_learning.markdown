@@ -12,8 +12,8 @@ author: Van den Oord et al, N(eur)IPS 2017, <a href='https://arxiv.org/abs/1711.
 <div class="summary">
 In this work, the authors propose <code>VQ-VAE</code>, a variant of the Variational Autoencoder (<code>VAE</code>) framework with a discrete latent space, using ideas from vector quantization. The two main motivations are <b>(i)</b> discrete variables are potentially better fit to capture the structure of data such as text and <b>(ii)</b> to prevent the posterior collapse in <code>VAE</code>s that leads to latent variables being ignored when the decoder is too powerful.
 <ul>
-<li><span class="procons">Pros (+):</span> pros.</li>
-<li><span class="procons">Cons (-):</span> Paragraph about the learned prior is not very clear, and this module does not have any ablation experiments.</li>
+<li><span class="procons">Pros (+):</span> Simple method to incorporate a discretized latent space in VAEs.</li>
+<li><span class="procons">Cons (-):</span> Paragraph about the learned prior is not very clear, and does not have corresponding ablation experiments to evalute its importance.</li>
 </ul>
 </div>
 
@@ -68,17 +68,21 @@ $$
 where $$x \mapsto  \overline{x}$$ denotes the `stop gradient` operator. The first term is the reconstruction loss stemming from the ELBO, the second term is the vector quantization contribution. Finally, the last  term is a *commitment loss* to control  the volume of the latent space by forcing the encoder to "commit" to the latent code it matched with, and not grow its output space unbounded. 
 
 #### Learned Prior
-A second contribution of this work consists in *learning the prior distribution*. As mentionned, during the training phase, the prior $$p(z)$$ is a uniform categorical distribution. After the training is done, we fit an *autoregressive distribution* over the space of latent codes. This is in particular enabled by the fact that the latent space is discrete.
+A second contribution of this work consists in *learning the prior distribution*. As mentionned, during the training phase, the prior $$p(z)$$ is a uniform categorical distribution. After the training is done, we fit an *autoregressive distribution* over the space of latent codes. This is in particular enabled by the fact that the latent space is discrete. 
+
+**Note:** It is not clear to me if the autoregresive model is trained on latent codes sampled from the prior $$z \sim p(z)$$ or from the encoder distribution $$x \sim \mathcal{D};\ z \sim q(z\ \vert\ x)$$
 
 ---
 
 <h3 class="section experiments"> Experiments </h3>
 
 The proposed model is mostly  compared to the standard continuous `VAE` framework. It seems to achieve similar log-likelihood and sample quality, while taking advantage of the discrete latent space. In particular 
-For ImageNet for instance, they consider $$K = 512$$ latent codes with dimensions $$32 \times 32 \times 1$$
+For ImageNet for instance, they consider $$K = 512$$ latent codes with dimensions $$1$$. The output of the fully-convolutional encoder $$z_e$$ is a feature map of size $$32 \times 32 \times 1$$ which is then quantized *pixel-wise*. Interestingly, the model still performs well when using a powerful decoder (here, PixelCNN <span class="citations">[2]</span>) which seems to indicate it does not suffer from *posterior collapse* as strongly as the standard continuous `VAE`.
+
+A second set of experiments tackles the problem of audio modelling. The performance of the model are once again satisfying. Furthermore, it does seem like the discrete latent space actually captures relevant characteristics of the input data structure, although this is a purely qualitative observation.
 
 ---
 
 <h3 class="section references"> References </h3>
 * <span class="citations">[1]</span> Autoencoding Variational Bayes, <i>Kingma and Welling, ICLR 2014</i>
-* <span class="citations">[2]</span> A Kernel Method for the Two-Sample-Problem, <i>Gretton et al, NIPS 2006</i>
+* <span class="citations">[2]</span> Pixel Recurrent Neural Networks, <i>van den Oord et al, arXiv 2016</i>

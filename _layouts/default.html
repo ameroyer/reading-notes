@@ -36,7 +36,7 @@
 	  <li class="dropdown"><a class="category" name="{{ category | first }}">{{ category | first }}</a>
 	    <ul class="dropdown-content">
 	      {% for post in category.last %}	      
-	      <li><a href="{{ post.url | relative_url }}">{{ post.title | truncate: 30  }}</a></li>
+	      <li><a href="{{ post.url | relative_url }}">{{ post.title | truncate: 26  }}</a></li>
 	      {% endfor %}
 	    </ul>
 	  </li>

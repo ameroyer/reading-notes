@@ -3,6 +3,15 @@
 
 @import "jekyll-theme-minimal";
 
+// Global widths
+.wrapper {
+width: 960px;
+}
+
+section {
+width: 650px
+}
+
 // Palette
 $white: #FFFFFF;
 $green: #48A9A6;
@@ -223,3 +232,13 @@ p:before {
     color: #444444;
 }
 	       
+.postthumb {
+width: 150px;
+height: 150px;
+float: left
+}
+
+.postthumb img {
+width: 100%;
+height: 100%;
+}

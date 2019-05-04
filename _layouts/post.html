@@ -2,15 +2,23 @@
 layout: default
 ---
 
-<small>{{ page.date | date: "%-d %B %Y" }}</small>
-<h1>{{ page.title }}</h1>
+  <div class="postthumb">
+    <img src="{{ page.thumb | relative_url}}">
+  </div>
+  <div style="text-align: right">
+    <small>{{ page.date | date: "%-d %B %Y" }}</small>
 
-<p class="view">by {{ page.author | default: site.author }}
+    <h1>{{ page.title }}</h1>
 
-{% if page.tags %}
-<br><small>tags: <em>{{ page.tags | join: "</em> - <em>" }}</em></small>
-{% endif %}
-</p>
+    <p class="view">by {{ page.author | default: site.author }}
 
+      {% if page.tags %}
+      <br><small>tags: <em>{{ page.tags | join: "</em> - <em>" }}</em></small>
+      {% endif %}
+    </p>
+  </div>
+
+<div style="clear: left; padding-top: 25px">
 {{content}}
+</div>
 

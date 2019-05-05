@@ -5,6 +5,7 @@ date:   2019-04-29 10:59:24 +0200
 tags: [few-shot learning, cvpr, 2017]
 categories:  [Few-Shot Learning]
 author: Misra et al, CVPR 2017, <a href='http://openaccess.thecvf.com/content_cvpr_2017/papers/Misra_From_Red_Wine_CVPR_2017_paper.pdf' target='_blank'>[link]</a>
+thumb: /images/thumbs/frwtrt.png
 ---
 
 

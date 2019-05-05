@@ -5,6 +5,7 @@ date:   2019-04-26 14:59:24 +0200
 tags: [few-shot learning, 2019]
 categories:  [Few-Shot Learning]
 author: Alfassy et al., 2019, <a href='https://arxiv.org/abs/1902.09811' target='_blank'>[link]</a>
+thumb: /images/thumbs/laso.png
 ---
 
 

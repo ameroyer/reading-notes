@@ -18,8 +18,8 @@ In this paper, the authors tackle the problem of <b>Domain Generalization</b>: G
 </div>
 
 
-
 <h3 class="section proposed"> Proposed model: MMD-AAE</h3>
+
 The goal of domain generalization is to find a common *domain-invariant feature space* underlying the source and (unseen) target spaces, under the assumption that such a space exists.
 To learn such space, the authors propose a variant of <span class="citations">[1]</span>, whose goal is to minimize the variance between the different source domains distributions using *Maximum Mean Discrepancy*. Additionally, the source distributions are aligned with a fixed *prior distribution*, with the hope that this reduces the risk of overfitting to the seen domains.
 
@@ -102,7 +102,7 @@ The model is trained similarly to `GAN`s: The discriminator and generator (auto-
 
 The method is evaluated on various classification tasks (digit, object and action recognition) in settings where the domains differ by small geometric changes (e.g., change of pose). They also compare to a large range of baselines, although none of them seem to have an adversarially learned representation space (maybe <span class="citations">[3]</span> would have been a good additional baseline).
 
-Additionally, ablation experiments show that the three terms $$\mathcal{L}_{\text{GAN}}$$, $$\mathcal{L}_{\text{MMD}}$$ and $$\mathcal{L}_{\text{err}}$$ all have a positve effect on the final effect, even when taken individually.
+Additionally, ablation experiments show that the three terms $$\mathcal{L}_{\text{GAN}}$$, $$\mathcal{L}_{\text{MMD}}$$ and $$\mathcal{L}_{\text{err}}$$ all have a positive effect on the final effect, even when taken individually.
 
 
 

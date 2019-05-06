@@ -36,8 +36,7 @@ $$
 \end{align}
 $$
 
-where $$\ell$$ is a standard binary classification los (here, cross-entropy). $$y$$ is the label of the image $$x$$ for the considered task and should be 1 if and only if the image contains the complex context $$(a, b)$$.
-
+where $$\ell$$ is a standard binary classification loss (here, cross-entropy). $$y$$ is the label of the image $$x$$ for the considered task and should be 1 if and only if the image contains the complex context $$(a, b)$$.
 
 
 ---

@@ -59,7 +59,19 @@ In the *semi-supervised* scenario, the label *y* can be missing for some of the 
 #### MMD objective
 
 So far, the model incorporates explicit statistical independence between the *sensitive* variables to protect, $$s$$ and the latent information to capture from the input data, $$z$$. The authors additionally propose to regularize the marginal posterior $$q_{\phi}(z\ \vert\ s)$$ using the Maximum Mean Discrepancy <span class="citations">[2]</span>: The `MMD` is a distance between probability distributions that compare *mean statistics*, and is often combined with the kernel trick for efficient computation.
-we want the latent representation to not learn any information about $$s$$: This constraint can be enforced by making the distributions $$p(z\ \vert\ s = 0)$$ and $$p(z\ \vert\ s = 1)$$ close to one another, as measured by their `MMD`. This introduces a second loss term, $$\mathcal{L}_{MMD}(x)$$.
+we want the latent representation to not learn any information about $$s$$: This constraint can be enforced by making the distributions $$p(z\ \vert\ s = 0)$$ and $$p(z\ \vert\ s = 1)$$ close to one another, as measured by their `MMD`. This introduces a second loss term to minimize, $$\mathcal{L}_{MMD}$$.
+
+The $$MMD$$ is defined as a difference of mean statistics over two distributions. *Empirically*, given two sample sets $$\mathbf{x^0} \sim P_0$$, $$\mathbf{x^1} \sim P_1$$ and a feature map operation $$\phi$$, the squared distance can be written as
+
+$$
+\begin{align}
+&\text{MMD}(P_0, P_1) =\left \| \frac{1}{|\mathbf{x^0}|}  \sum_{i} \phi(\mathbf{x^0}_i) - \frac{1}{|\mathbf{x^1}|}  \sum_{i} \phi(\mathbf{x^1}_i)   \right\|^2\\
+&= \frac{1}{|\mathbf{x^0}|^2} \left\|  \sum_{i} \phi(\mathbf{x^0}_i)  \right\| + \frac{1}{|\mathbf{x^1}|^2} \left\|^2  \sum_{i} \phi(\mathbf{x^1}_i)  \right\|^2 -   \frac{2}{|\mathbf{x^0}| |\mathbf{x^1}|} \sum_i \sum_j < \phi(\mathbf{x^0}_i), \phi(\mathbf{x^1}_j) >\\
+&= \frac{1}{|\mathbf{x^0}|^2} \sum_i \sum_j k(\mathbf{x^0}_i, \mathbf{x^0}_j) +  \frac{1}{|\mathbf{x^1}|^2} \sum_i \sum_j k(\mathbf{x^1}_i, \mathbf{x^1}_j) - \frac{2}{|\mathbf{x^0}| |\mathbf{x^1}|} \sum_i \sum_j k(\mathbf{x^0}_i, \mathbf{x^1}_j)
+\end{align}
+$$
+
+where the last line is the result of the *kernel trick* and $$k: x, y \mapsto <\phi(x), \phi(y) >$$ is an arbitrary kernel function. In practice, the MMD loss term is computed over each batch: A naive implementation would  require computing the full kernel matrix of $$k(x_i, x_j)$$ for each pair of samples in the batch, where each scalar product requires $$K^2$$ operations, where $$K$$ is the dimensionality of $$x$$. Instead, following <span class="citations">[6]</span>, they use *Random Kitchen Sinks* <span class="citations">[5]</span>  which is a low-rank method that allows to compute the MMD loss more efficiently.
 
 ---
 
@@ -86,3 +98,5 @@ In the **Domain Adaptation** task, the authors mostly compare to the `DANN` <spa
 * <span class="citations">[2]</span> A Kernel Method for the Two-Sample-Problem, <i>Gretton et al, NIPS 2006</i>
 * <span class="citations">[3]</span> Learning Fair Representations, <i>Zemel et al, ICML 2013</i>
 * <span class="citations">[4]</span> Domain-Adversarial Training of Neural Networks, <i>Ganin et al., JMLR 2016</i>
+* <span class="citations">[5]</span> Random Features for Large-Scale Kernel Machines, <i>Rahimi and Recht, NIPS 2007</i>
+* <span class="citations">[6]</span> FastMMD: Ensemble of Circular Discrepancy for Efficient Two-Sample Test, <i>Zhao and Meng, Neural Computation 2015</i>

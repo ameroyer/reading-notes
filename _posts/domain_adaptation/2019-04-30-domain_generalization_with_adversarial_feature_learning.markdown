@@ -61,7 +61,7 @@ $$
 
 $$
 \begin{align}
-\mathbb{E}_{x \sim \mathcal P} (f(x))  &\simeq \frac{1}{m} \sum_{i=1}^m < f, k(x_i, \cdot) >\ \overset{\Delta}{=}\ <f, \mathbf{\mu_{\mathcal P}} >\\
+\mathbb{E}_{x \sim \mathcal P} (f(x))  &= <f, \mathbb{E}_{x \sim \mathcal P}\ k(x, \cdot)> \overset{\Delta}{=}\ <f, \mathbf{\mu_{\mathcal P}} >\\
 \text{MMD}(\mathcal P, \mathcal Q; \mathcal F) &= \sup_{f \in \mathcal F} < f, \mu_{\mathcal P} - \mu_{\mathcal Q} > = \| \mu_{\mathcal P} - \mu_{\mathcal Q} \|
 \end{align}
 $$
@@ -82,6 +82,17 @@ $$
 \mathcal{L}_{\text{MMD}}  = \frac{1}{K^2} \sum_{1 \leq i, j \leq K} \text{MMD}(\mathcal{P}_i, \mathcal{P}_j) \tag{MMD loss}
 \end{align}
 $$
+
+In practice, the MMD is computed under a specific kernel choice and approximating the expectations by their empirical estimates.
+
+$$
+\begin{align}
+MMD(\mathcal{P}_i, \mathcal{P}_j)^2 &= \left\| \frac{1}{n_i} \sum_t \phi(x_{i, t})  -  \frac{1}{n_j} \sum_t \phi(x_{j, t}) \right \|^2\\
+& = \frac{1}{n_i^2} \sum_{t, u} k(x_{i, t}, x_{i, u}) + \frac{1}{n_j^2} \sum_{t, u} k(x_{j, t}, x_{j, u}) - \frac{2}{n_i n_j} \sum_{t, u} k(x_{i, t}, x_{j, u})
+\end{align}
+$$
+
+where $$k$$ is the kernel function associated to feature map $$\phi$$. Experiments are conducted with various Gaussian RBF priors.
 
 #### Semi-supervised MMD-AAE
 

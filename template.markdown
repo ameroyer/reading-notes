@@ -6,6 +6,7 @@ tags: [category, venue, year]
 categories:  [Category]
 author: Authors, Venue, <a href='' target='_blank'>[link]</a>
 thumb: /images/thumbs/thumb.png
+year: 2016
 ---
 
 

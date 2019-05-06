@@ -5,6 +5,7 @@ date:   2019-04-26 14:59:24 +0200
 tags: [category, venue, year]
 categories:  [Category]
 author: Authors, Venue, <a href='' target='_blank'>[link]</a>
+thumb: /images/thumbs/thumb.png
 ---
 
 
@@ -19,9 +20,21 @@ Summary
 
 
 <h3 class="section sota"> State-of-the-art </h3>
-Stae-of-the-art
+State-of-the-art
+
+
+<div class="figure">
+<img src="{{ site.baseurl }}/images/posts/image.png">
+<p><b>Figure:</b> Caption.</p>
+</div>
 
 ---
+
+<h3 class="section theory"> Theory </h3>
+
+Theory
+
+--- 
 
 <h3 class="section proposed"> Proposed </h3>
 

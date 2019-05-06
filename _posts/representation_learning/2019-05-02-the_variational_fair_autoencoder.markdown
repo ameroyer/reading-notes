@@ -6,6 +6,7 @@ tags: [representation learning, iclr, 2016]
 categories:  [Representation Learning]
 author: Louizos et al, ICLR 2016, <a href='https://arxiv.org/pdf/1511.00830.pdf' target='_blank'>[link]</a>
 thumb: /images/thumbs/vfae.png
+year: 2016
 ---
 
 

@@ -168,6 +168,17 @@ line-height:15px
 
 p.view a, p.view a:hover {
 font-weight: bold
+	  }
+
+div.meta {
+    display: inline-block; 
+    float:right;
+    vertical-align: middle
+}
+
+span.year {
+    font-weight: bold;
+    color: $gold;
 }
 
 h3.section:before{
@@ -187,6 +198,10 @@ content: "\f492";
 
 h3.dataset:before{
 content: "\f03e";
+}
+
+h3.theory:before{
+content: "\f51c";
 }
 
 h3.proposed:before{
@@ -230,6 +245,7 @@ p:before {
     margin-right: auto;
     margin-bottom: 42px;
     color: #444444;
+    text-align: center;
 }
 	       
 .postthumb {

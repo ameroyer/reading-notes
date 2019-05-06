@@ -6,6 +6,7 @@ tags: [representation learning, neurips, 2017]
 categories:  [Representation Learning]
 author: Van den Oord et al, N(eur)IPS 2017, <a href='https://arxiv.org/abs/1711.00937' target='_blank'>[link]</a>
 thumb: /images/thumbs/vqvae.png
+year: 2017
 ---
 
 

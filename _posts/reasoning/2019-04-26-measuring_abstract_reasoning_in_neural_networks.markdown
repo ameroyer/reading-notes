@@ -6,6 +6,7 @@ tags: [visual reasoning, 2018, icml]
 categories: [Visual Reasoning]
 author: Barrett et al., ICML 2018, <a href='https://arxiv.org/pdf/1807.04225.pdf' target='_blank'>[link]</a>
 thumb: /images/thumbs/marinn.png
+year: 2018
 ---
 
 
@@ -23,8 +24,11 @@ The authors introduce a new visual analogy dataset with the aim to analyze the <
 
 This paper introduces  the *Procedurally Generated Matrices* (PGM) dataset. It is based on *Raven’s Progressive Matrices (RPM)* introduced by psychologist John Raven in 1936. Given an incomplete *3x3* matrix (missing the bottom right panel), the goal is to complete the matrix with an image picked *out of 8 candidates*. Typically, several candidates are plausible but the subject has to select the one with the strongest justification.
 
-<center><img src='https://drive.google.com/uc?export=view&id=1Nd7QA5574NeXmSimxhD1b4THfbYnXy_E'></center>
-<br>
+
+<div class="figure">
+<img src="{{ site.baseurl }}/images/posts/marinn.png">
+<p><b>Figure:</b>  An example of PGM (<b>left</b>)) and depiction of reation types (<b>right</b>)</p>
+</div>
 
 #### Construction
 

@@ -31,9 +31,9 @@
 
         <!-- <p>{{ site.description | default: site.github.project_tagline }}</p> -->
 	
-	<ul class="nav">
-	  
-	  {% for category in site.categories %}
+	<ul class="nav">	  
+	  {% assign sorted_categories = (site.categories | sort:0) %}
+	  {% for category in sorted_categories  %}
 	  <li class="dropdown"><a class="category" name="{{ category | first }}">{{ category | first }}</a>
 	    <ul class="dropdown-content">
 	      {% for post in category.last %}	      

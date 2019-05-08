@@ -32,6 +32,7 @@
         <!-- <p>{{ site.description | default: site.github.project_tagline }}</p> -->
 	
 	<ul class="nav">
+	  
 	  {% for category in site.categories %}
 	  <li class="dropdown"><a class="category" name="{{ category | first }}">{{ category | first }}</a>
 	    <ul class="dropdown-content">
@@ -58,7 +59,7 @@
 	</div>
 
 	<p style="margin:0">This project is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>
-	<br><small>Theme based on <i>jekyll-minimal</i>  by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+	  <br><small>Theme based on <i>jekyll-minimal</i>  by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
       </footer>
 
     </div>

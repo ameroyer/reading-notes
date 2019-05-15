@@ -2,7 +2,7 @@
 layout: post
 title:  "Conditional Neural Processes"
 date:   2019-05-06 14:00:00 +0200
-tags: [structured learning, gaussian processes, icml, 2018]
+tags: [structured learning, graphical models, icml, 2018]
 categories:  [Structured Learning]
 author: Garnelo et al, ICML 2018, <a href='https://arxiv.org/abs/1807.01613' target='_blank'>[link]</a>
 thumb: /images/thumbs/cnp.png

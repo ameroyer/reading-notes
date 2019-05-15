@@ -21,6 +21,12 @@ Here the authors tackle the problem of Visual Question Answering. They propose t
 
 <h3 class="section proposed"> The Neuro-Symbolic Concept Learner</h3>
 
+
+<div class="figure">
+<img src="{{ site.baseurl }}/images/posts/neurolearner.png">
+<p><b>Figure:</b> The Neuro-Symbolic Concept Learner aims to learn jointly a vocabulary of visual concepts, semantic embedding of question sentences, and how to execute them.</p>
+</div>
+
 #### Architecture Overview
 The model is rather involved and complex, and can be summarized as follows:
   * **Visual Perception module** This module first detect objects in the scene, and then extracts features (`ResNet-34`) from the relevant regions using `RoI`-pooling. They make use of a *pretrained* `Mask R-CNN` to generate the object proposals. In the end, each obejct is represented with the concatenation of its region-based feature (*self*) and global image features (*context*)

@@ -34,6 +34,6 @@ layout: default
   <h1 style="margin-top: 35px">Index</h1>
   {% assign sorted_posts = site.posts | sort:'title' %}
  {% for post in sorted_posts %}
-     <a href="{{ post.url | relative_url }}">{{ post.title }}</a> <div class="meta"><small>({{ post.categories | first }})</small> <span class="year"><small>[{{ post.year }}]</small></span></div><br>
+     <a href="{{ post.url | relative_url }}">{{ post.title | truncate: 70}}</a> <div class="meta"><small>({{ post.categories | first }})</small> <span class="year"><small>[{{ post.year }}]</small></span></div><br>
    {% endfor %}
 </body>

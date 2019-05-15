@@ -59,7 +59,10 @@ Experiments
 
 <h3 class="section followup">Closely related (follow-up work)</h3>
 
-Follow-up work
+<h4 style="margin-bottom: 0px"> Title.</h4>
+<p style="text-align: right"><small>Authors, <a href="">[link]</a></small></p>
+
+> Description
 
 ---
 

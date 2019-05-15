@@ -76,7 +76,7 @@ The final pipeline consists in $$L$$ levels that operate on different scales: ea
 
 <div class="figure">
 <img src="{{ site.baseurl }}/images/posts/glow.png">
-<p><b>Figure:</b> Overview of the <code>GLOW</code> architecture.</p>
+<p><b>Figure:</b> Overview of the multi-layer <code>GLOW</code> architecture.</p>
 </div>
 
 In summary, the *main differences* with <span class="citations">[3]</span> are:

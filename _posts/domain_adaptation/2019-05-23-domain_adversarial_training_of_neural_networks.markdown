@@ -51,20 +51,6 @@ $$
 where $$\mbox{VC}$$ designates the Vapnik–Chervonenkis dimensions and $$n$$ the number of samples.
 The rest of the paper directly stems from this intuition: in order to minimize the *target risk* the proposed *Domain Adversarial Neural Network* (`DANN`) aims to build an "<i>internal representation that contains no discriminative information about the origin of the input (source or target), while preserving a low risk on the source (labeled) examples</i>".
 
-<h3 class="section sota"> State-of-the-art </h3>
-State-of-the-art
-
-
-<div class="figure">
-<img src="{{ site.baseurl }}/images/posts/image.png">
-<p><b>Figure:</b> Caption.</p>
-</div>
-
----
-
-<h3 class="section theory"> Theory </h3>
-
-Theory
 
 --- 
 
@@ -85,17 +71,17 @@ $$
 \end{align}
 $$
 
-The final objective an thus be written as:
+The ***final objective*** can thus be written as:
 
 $$
 \begin{align}
-E(\theta_f, \theta_y, \theta_d) &= \mathcal{L}_y(\theta_f, \theta_y)  - \lambda \mathcal{L}_d(\theta_f, \theta_d) \\
-\theta_f^\ast, \theta_y^\ast &= \arg\min E(\theta_f, \theta_y, \theta_d) \\
-\theta_d^\ast &= \arg\max E(\theta_f, \theta_y, \theta_d) 
+E(\theta_f, \theta_y, \theta_d) &= \mathcal{L}_y(\theta_f, \theta_y)  - \lambda \mathcal{L}_d(\theta_f, \theta_d) \tag{1}\\
+\theta_f^\ast, \theta_y^\ast &= \arg\min E(\theta_f, \theta_y, \theta_d) \tag{2}\\
+\theta_d^\ast &= \arg\max E(\theta_f, \theta_y, \theta_d) \tag{3} 
 \end{align}
 $$
 
-#### Implementation for Neural Networks
+#### Gradient Reversal Layer
 
 Applying standard gradient descent, this problem leads to the following gradient update rules:
 
@@ -103,25 +89,55 @@ $$
 \begin{align}
 \theta_f &= \theta_f - \alpha \left( \frac{\partial \mathcal{L}_y}{\partial \theta_f} - \lambda \frac{\partial \mathcal{L}_d}{\partial \theta_f}  \right)\\
 \theta_y &= \theta_y - \alpha \frac{\partial \mathcal{L}_y}{\partial \theta_y} \\
-\theta_d &= \theta_d + \alpha \frac{- \lambda \partial \mathcal{L}_d}{\partial \theta_y} \\
+\theta_d &= \theta_d + \alpha \frac{- \lambda \partial \mathcal{L}_d}{\partial \theta_d} \\
 \end{align}
 $$
 
-In the case of neural networks, the gradients of the loss with respect to parameters are obtained with the *backpropagation algorithm*.
+In the case of neural networks, the gradients of the loss with respect to parameters are obtained with the *backpropagation algorithm*. The current system equations are very similar to the standard backpropagation scheme, except for the opposite sign in the derivative of $$\mathcal{L}_d$$ with respect to $$\theta_d$$ and $$\theta_f$$. The authors introduce a ***gradient reversal layer*** (`GRL`) trick to evaluate both gradients in one standard backward pass.
+
+The idea is that the output of $$\theta_f$$ is normally propagated to $$\theta_d$$, however during backpropagation, its gradient is multiplied by a negative constant:
+
+$$
+\begin{align}
+\frac{\partial \mathcal L_d}{\partial \theta_f} = \frac{\mathbf{\color{red}{-}}  \partial \mathcal L_d}{\partial G_f(x)} \frac{\partial G_f(x)}{\partial \theta_f} 
+\end{align}
+$$
+
+In other words, for $$\theta_d$$ parameters, the gradients of $$\mathcal L_d$$ are computed normally (*minimization*), but are propagated with a minus sign in the feature extraction part of the network (maximization).
+Augmented with the gradient reversal layer, the final model is standardly trained by minimizing the sum of losses $$\mathcal L_d + \mathcal L_y$$ , which corresponds to the optimization problem in **(1-3)**.
+
+
+<div class="figure">
+<img src="{{ site.baseurl }}/images/posts/dann.png">
+<p><b>Figure:</b> The proposed architecture includes a <span style="color: green">deep feature extractor</span> and a <span style="color: blue">deep label predictor</span>. 
+Unsupervised domain adaptation is achieved by adding a <span style="color: fuchsia">domain classifier</span> connected to the feature extractor via a gradient reversal layer that multiplies
+the gradient by a certain negative constant during backpropagation. </p>
+</div>
 
 ---
 
-<h3 class="section dataset"> Datasets </h3>
-
-Datasets
-
-
----
 
 <h3 class="section experiments"> Experiments </h3>
 
-Experiments
+#### Datasets
+The paper presents extensive results on the following settings:
+ * **Toy dataset**: A toy example based on the *two half-moons dataset*, where the source domains consists in the standard binary classification tasks with the two half-moons, and the target is the same, but with a 30 degrees rotation. They compare the `DANN` to a `NN` model which has the same architecture but without the `GRL`: in other words, the baseline directly minimizes both the task and domain classificatoin losses.
+ * **Sentiment Analysis**: These experiments are performed on the *Amazon reviews dataset* which contains product reviews from four different domains (hence 12 different source to target scenarios) which have to be classified as either positive or negative reviews.
+* **Image classification**: Here the model is evaluated on various image classification task including MNIST $$\rightarrow$$ SVHN, or different domain pairs from the OFFICE dataset <span class="citations">[2]</span> .
+* **Person re-identification**: The task of person identification across various visual domains.
 
+
+#### Validation
+
+
+#### Conclusions
+in general, the proposed method seems to perform very well for aligning the source and target domains in an *unsupervised domain adaptation* framework. Its main advantage is its *simplicity*, both in terms of motivation and implementation, as the Gradient Reversal Layer is easily implemented in standard Deep Learning frameworks and can be added to any architectures. The main shortcomings are that **(i)** all experiments deal with only two sources and extensions to multiple domains might require some tweaks (e.g., considering the sum of pairwise discrepancies as an upper-bound) and **(ii)** in practice, training can be come *unstable* due to the adverary training scheme; In particular, the experiments sections show that some stability tricks have to be used during training, such as using momentum or slowly increasing the contribution of the domain classificatoin branch.
+
+
+<div class="figure">
+<img src="{{ site.baseurl }}/images/posts/dann_mnist_embeddings.png">
+<p><b>Figure:</b> <code>t-SNE</code> projections of the embeddings for the <span style="color: blue">source</span> (MNIST) and <span style="color: red">target</span> (SVHN) datasets without (<b>left</b>) and with (<b>right</b>) <code>DANN</code> adaptation. </p>
+</div>
 ---
 
 <h3 class="section followup">Closely related (follow-up work)</h3>
@@ -133,3 +149,4 @@ Experiments
 
 <h3 class="section references"> References </h3>
 * <span class="citations">[1]</span> Analysis of representations for Domain Adaptation, <i>Ben-David et al, NIPS 2006</i>
+* <span class="citations">[2]</span> Adapting visual category models to new domains, <i>Saenko et al, ECCV 2010</i>

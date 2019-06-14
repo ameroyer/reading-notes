@@ -145,9 +145,10 @@ The main shortcomings of the method are that **(i)** all experiments deal with o
 ---
 
 <h3 class="section followup">Closely related (follow-up work)</h3>
-<h4 style="margin-bottom: 0px"> Title.</h4>
-<p style="text-align: right"><small>Authors, <a href="">[link]</a></small></p>
-> Description
+<h4 style="margin-bottom: 0px"> Conditional Adversarial Domain Adaptation.</h4>
+<p style="text-align: right"><small>Long et al, N(eur)IPS 2018<a href="https://arxiv.org/abs/1705.10667">[link]</a></small></p>
+> In this work, the  authors propose to for Domain Adversarial Networks. More specifically, the domain classifier is conditioned on the input's class: However, since  part of the samples are unlabeled,  the conditioning uses the *output of the target classifier branch* as a proxy for the class information. Instead of simply concatenating the feature input with the condition, the authors consider a  *multilinear conditioning* technique.
+> Another related paper is <span class="citations">[4]</span>. It also uses the multi-class information of the input domain, although in a simpler way.
 
 ---
 
@@ -155,3 +156,4 @@ The main shortcomings of the method are that **(i)** all experiments deal with o
 * <span class="citations">[1]</span> Analysis of representations for Domain Adaptation, <i>Ben-David et al, NIPS 2006</i>
 * <span class="citations">[2]</span> Adapting visual category models to new domains, <i>Saenko et al, ECCV 2010</i>
 * <span class="citations">[3]</span> Person re-identification via structured prediction, <i>Zhang and Saligrama, arXiv 2014</i>
+* <span class="citations">[4]</span> Multi-Adversarial Domain Adaptation, <i>Pei et al, AAAI 2018</i>

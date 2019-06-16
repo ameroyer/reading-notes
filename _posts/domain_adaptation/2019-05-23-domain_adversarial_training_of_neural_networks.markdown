@@ -147,8 +147,7 @@ The main shortcomings of the method are that **(i)** all experiments deal with o
 <h3 class="section followup">Closely related (follow-up work)</h3>
 <h4 style="margin-bottom: 0px"> Conditional Adversarial Domain Adaptation.</h4>
 <p style="text-align: right"><small>Long et al, N(eur)IPS 2018<a href="https://arxiv.org/abs/1705.10667">[link]</a></small></p>
-> In this work, the  authors propose to for Domain Adversarial Networks. More specifically, the domain classifier is conditioned on the input's class: However, since  part of the samples are unlabeled,  the conditioning uses the *output of the target classifier branch* as a proxy for the class information. Instead of simply concatenating the feature input with the condition, the authors consider a  *multilinear conditioning* technique.
-> Another related paper is <span class="citations">[4]</span>. It also uses the multi-class information of the input domain, although in a simpler way.
+> In this work, the  authors propose to for Domain Adversarial Networks. More specifically, the domain classifier is conditioned on the input's class: However, since  part of the samples are unlabeled,  the conditioning uses the *output of the target classifier branch* as a proxy for the class information. Instead of simply concatenating the feature input with the condition, the authors consider a  *multilinear conditioning* technique which relies on the *cross-covariance* operator. Another related paper is <span class="citations">[4]</span>. It also uses the multi-class information of the input domain, although in a simpler way.
 
 ---
 

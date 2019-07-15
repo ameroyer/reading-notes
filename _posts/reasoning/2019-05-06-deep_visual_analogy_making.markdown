@@ -65,7 +65,7 @@ where `MLP` is a Multi Layer Perceptron. The $$[ \cdot; \cdot]$$ operator denote
  
 #### Regularizing the latent space
  
- While the previous losses acted at the pixel-level to match the decoded image with the target image **D**, the authors introduce an additional regularization loss that additionally matches the analogy *at the feature level* with the source analogy **a:b**. Formally, each objective can be written in the form $$\| d - g(f(c) + T(f(b) - f(a), f(c)))\|$$ and the corresponding regularization loss term is defined as: 
+ While the previous losses acted at the pixel-level to match the decoded image with the target image **D**, the authors introduce an additional regularization loss that additionally matches the analogy *at the feature level* with the source analogy **a:b**. Formally, each objective can be written in the form $$\| d - g(f(c) + T(f(b) - f(a), f(c)))\|^2$$ and the corresponding regularization loss term is defined as: 
  
  $$
  \begin{align}

@@ -5,11 +5,21 @@
 
 // Global widths
 .wrapper {
-    width: 1000px;
+    width: 95%;
+    margin:0 auto;
 }
 
 section {
-    width: 710px
+   float: none;
+   width: auto;
+   margin-left: 300px;
+}
+
+header {
+  width:350px;
+  float:left;
+  position:fixed;
+  -webkit-font-smoothing:subpixel-antialiased;
 }
 
 // Palette
@@ -255,23 +265,30 @@ p:before {
 
 .postpreview {
     overflow: hidden;
-    width: 24%;
-    height: 100px;
+    width: 19.5%;
+    height: auto;
     float: left;
     display: inline-block;
-    font-size: 11px;
+    font-size: 14px;
     margin-left: 5px;
+    margin-bottom: 15px;
+    text-align: left;
 }
 
 .postpreview img {
-    width: 75px;
-    height: 75px;
+    width: 100px;
+    height: 100px;
     float: left;
-    margin-right: 2px;
+    margin-right: 5px;
+    border: 1px black solid;
 }
 
 .postpreview .category {
     width: 100%;
     text-align: left;
-    font-size: 10px;
+    font-size: 12px;
+}
+
+.postpreview .title {
+    height: 100px
 }

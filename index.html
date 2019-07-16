@@ -9,9 +9,11 @@ layout: default
   <div class="postpreview">
     <div class="category">
       ({{ post.categories | first }}) <span class="year">[{{ post.year }}]</span>
-      </div>
+    </div>
     <img src="{{ post.thumb | relative_url }}"></img>
-    <a href="{{ post.url | relative_url }}">{{ post.title | truncate: 70}}</a>
+    <div class="title">
+      <a href="{{ post.url | relative_url }}">{{ post.title | truncate: 70}}</a>
+    </div>
     <div style="clear: both;"></div>
   </div>  
   {% endfor %}

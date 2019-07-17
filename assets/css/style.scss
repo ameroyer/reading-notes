@@ -4,11 +4,11 @@
 @import "jekyll-theme-minimal";
 
 body {
-  background-color: #fff;
-  padding:50px;
-  font: 16px/1.5 "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color:#727272;
-  font-weight:400;
+    background-color: #fff;
+    padding:50px;
+    font: 16px/1.5 "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color:#727272;
+    font-weight:400;
 }
 
 
@@ -19,16 +19,16 @@ body {
 }
 
 section {
-   float: none;
-   width: auto;
-   margin-left: 300px;
+    float: none;
+    width: auto;
+    margin-left: 300px;
 }
 
 header {
-  width:350px;
-  float:left;
-  position:fixed;
-  -webkit-font-smoothing:subpixel-antialiased;
+    width:350px;
+    float:left;
+    position:fixed;
+    -webkit-font-smoothing:subpixel-antialiased;
 }
 
 // Palette
@@ -151,7 +151,7 @@ ul.dropdown-content a:hover {
 
 // General style
 h1 { 
-font-size: 35px;
+    font-size: 35px;
 }
 
 h1, h3, h4 {
@@ -184,9 +184,9 @@ p.view, p.view a {
     color: $blue;
     text-align: right;
     margin-top:0;
-    padding:0;
+    padding:0px;
     top:0;
-    line-height:15px
+    line-height:20px
 }
 
 p.view a, p.view a:hover {

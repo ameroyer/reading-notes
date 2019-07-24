@@ -11,16 +11,16 @@ year: 2019
 
 
 <div class="summary">
-In this paper, the authors tackle the problem of "multi-label few-shot learning", in which a multi-label classifier is trained with <b>few samples</b> of each object category, and is applied on images that contain potentially <b>new combinations</b> of the categories of interest: For instance seeing . The key idea of the paper is to synthesize new samples at the <b>feature-level</b>, to mirror unseen combinations of the object category and reduce the train/test distribution shift.
+In this paper, the authors tackle the problem of "multi-label few-shot learning", in which a multi-label classifier is trained with <b>few samples</b> of each object category, and is applied on images that contain potentially <b>new combinations</b> of the categories of interest. The key idea of the paper is to synthesize new samples at the <b>feature-level</b> by mirorring set operations (union, intersection, substraction), hoping to the train/test distribution shift and improve the model's generalization abilities.
 <ul>
 <li><span class="procons">Pros (+):</span> The proposed objective is intuitive and can be seen as a regularization of the feature space to respect specific set operations; also introduces a benchmark for the proposed problem.</li>
-<li><span class="procons">Cons (-):</span> hard to interpret results, in particular lack of ablation experiments, and there are two different potential train/test shifts which are never distinguished: new unseen classes <b>and</b> new unseen combinations of already seen classes.</li>
+<li><span class="procons">Cons (-):</span> hard to interpret results (lack of ablation experiments). In particular, there are two different potential train/test shifts which are never distinguished: new unseen classes <b>and</b> new unseen combinations of already seen classes.</li>
 </ul>
 </div>
 
 
 <h3 class="section proposed"> The LaSO Objective</h3>
-The proposed method consists in manipulating the *semantic content* of the training images to generate new combinations of semantic labels, in particular focusing on set operations: union ($$\cup$$), intersection ($$\cap$$) and set subtraction ($$\setminus$$). Interestingly, operations such as $$\cap$$ and $$\setminus$$ could in theory shine light on *implicit semantic information*: For instance, in a task of animal classification, the operation `zebra` $$\setminus$$ `horse` describes the attribute `striped`, which is not one of the original classes.
+The proposed method consists in manipulating the *semantic content* of the training images at the feature-level to generate new combinations of semantic labels, in particular relying on known set operations: union ($$\cup$$), intersection ($$\cap$$) and set subtraction ($$\setminus$$). Interestingly, operations such as $$\cap$$ and $$\setminus$$ could additionally shine new light on *implicit semantic information*: For instance, in a task of animal classification, the operation `zebra` $$\setminus$$ `horse` describes the attribute `striped`, which is not one of the original classes of interest, but a meaningful semantic attribute.
 
 
 <div class="figure">
@@ -30,17 +30,17 @@ The proposed method consists in manipulating the *semantic content* of the train
 
 
 #### Semantic Losses
-The label set operations are performed at the *feature-level*, which in particular allows for using pre-trained feature representations, but makes the example generation process less interpretable. Given images $$x \in \mathcal X$$, their corresponding labels set $$L(x)$$, and a feature extractor $$\phi: \mathcal X \rightarrow \mathcal F$$, we train three neural networks $$M_{\theta}^{\cap}, M_{\theta}^{\cup}, M_{\theta}^{\setminus}$$ to capture label sets operations at the feature-level:
+The label set operations are performed at the *feature-level*, which in particular allows for using pre-trained feature representations, but makes the example generation process less interpretable, since we do not visualize the actual samples. Given images $$x \in \mathcal X$$, their corresponding labels set $$L(x)$$, and a feature extractor $$\phi: \mathcal X \rightarrow \mathcal F$$, we train three neural networks $$M_{\theta}^{\cap}, M_{\theta}^{\cup}, M_{\theta}^{\setminus}$$ to capture label sets operations at the feature-level:
 
 $$
 \begin{align}
-\mathcal L_{\text{LaSO}}(x, y;\ \theta) = &\ell(C_\psi(M_{\theta}^{\cap}(\phi(x), \phi(y))), L(x) \cap L(y)) + \\
-&\ell(C_\psi(M_{\theta}^{\cup}(\phi(x), \phi(y))), L(x) \cup L(y)) \\
+\mathcal L_{\text{LaSO}}(x, y;\ \theta) = & \ell(C_\psi(M_{\theta}^{\cap}(\phi(x), \phi(y))), L(x) \cap L(y))  + \\
+&\ell(C_\psi(M_{\theta}^{\cup}(\phi(x), \phi(y))), L(x) \cup L(y))  + \\
 &\ell(C_\psi(M_{\theta}^{\setminus}(\phi(x), \phi(y))), L(x) \setminus L(y))
 \end{align}
 $$
 
-where $$\ell$$ is a classification loss, here a multi-label *sigmoid cross-entropy* loss. $$C_\psi$$ is  a classifier mapping feature representations to labels and trained for classification on the standard dataset:
+where $$\ell$$ is a classification loss, here a multi-label *binary sigmoid cross-entropy* loss (BCE). $$C_\psi$$ is  a classifier mapping feature representations to labels and trained for classification on the standard dataset, using the following standard obejctive:
 
 $$
 \begin{align}
@@ -61,8 +61,14 @@ $$
 $$
 
 
+<div class="figure">
+<img src="{{ site.baseurl }}/images/posts/laso_model.png">
+<p><b>Figure:</b>  Summary of the LaSO model. Extracted features `\phi(x) = F_x` and `\phi(y) = F_y` are combined by MLPs `M^{\mbox{op}}` to emulate classical set operations on the label space. The resulting new samples are fed to a multi-label classifier (top right part), with the original samples. The bottom right part corresponds to the regularization losses. </p>
+</div>
+
+
 #### Note: Analytic variant
-One variant is, instead of learning the label-set operator as neural networks, to define them *analytically*. The authors propose:
+One suggested variant is, instead of learning the label-set operator as neural networks, to define them *analytically*. The authors propose to use the same standard formalism for set operations but on the feature representations:
 
 $$
 \begin{align}
@@ -80,7 +86,7 @@ However, in practice this performs generally much worse than learning the transf
 
 Each LaSO network is a 3 or 4 layers standard *Multi-Layer Perceptron*. The training is done in two steps: First, the feature extractor is  *pretrained and fixed* (ResNet-34 or Inception v3 architecture), and then both the feature extractor and the LaSO model are jointly trained. The authors consider two experimental settings:
 
-  * **MS-COCO:** The model is trained on 64 classes, while the 16 remaining ones are kept unseen. **First**, they evaluate the semantic accuracy of the label set operation networks: i.e., *do they actually capture the targeted operation* ? It seems to be the case for the intersection and union operations, as the retrieval accuracy is as good as the one achieved on the standard dataset (no manipulation). However, performance of the subtraction network or on the unseen classes are less impressive. **Second,** they evaluate the model for few-shot learning on the *unseen categories*. The proposed method outperforms a few existing baselines on this task. *Note that*, in order to evaluate the model on the unseen categories, they separately train a 16-way classifier on them, used for evaluation. This seems potentially biased as it means the model can not confuse them with already seen classes, which would be a likely source of errors.
+  * **MS-COCO:** The model is trained on 64 classes, while the 16 remaining ones are kept unseen. **First**, they evaluate the semantic accuracy of the label set operation networks: i.e., *do they actually capture the targeted operation* ? It seems to be the case for the intersection and union operations, as the retrieval accuracy is as good as the one achieved on the standard dataset (no manipulation). However, performance of the subtraction network or on the unseen classes are less convincing. **Second,** they evaluate the model for few-shot learning on the *unseen categories*. The proposed method outperforms a few existing baselines on this task. *Note that*, in order to evaluate the model on the unseen categories, they separately train a 16-way classifier on them, used for evaluation. This is a standard metric in domain generalization, but it means the model can not confuse them with already seen classes, which would be a likely source of errors.
 
 
   * **CelebA:** In this case, the multi-label information comes from face attributes. In this setting, they only evaluate the ability of the label set networks to capture their respective set operation. Results are a bit mitigated, as was the case for MS-COCO; only the union operation seems to be really well captured.

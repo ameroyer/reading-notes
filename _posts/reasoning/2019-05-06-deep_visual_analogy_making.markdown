@@ -121,7 +121,7 @@ Disentanglement methods usually outperforms the other baselines, especially in *
 <h3 class="section followup"> Closely Related</h3>
 
 <h4 style="margin-bottom: 0px"> Visalogy: Answering Visual Analogy Questions <span class="citations">[3]</span></h4>
-<p style="text-align: right"><small>Sadeghi et al., <a href="https://arxiv.org/pdf/1510.08973.pdf">[link]</a></small></p>
+<p style="text-align: left">Sadeghi et al., <a href="https://arxiv.org/pdf/1510.08973.pdf">[link]</a></p>
 
 > In this paper, the authors tackle the visual analogy problem in natural images by learning a joint embedding on relation and visual appearances using a *Siamese architecture*. The main idea is to learn an embedding space where the analogy transformation can be modeled by *simple latent vector transformations*. The model consists in a Siamese quadruple architecture, where the four heads correspond to the three context images and the candidate image for the visual analogy task respectively They do consider a *restrained set of analogies*, in particular those based on attributes or actions of animals or geometric view point changes. Given analogy problem $$I_1 : I_2 :: I_3 : I_4$$ with label $$y$$ (1 if $$I_4$$ fits the analogy, 0 otherwise), the model is trained with the following objective
 

@@ -10,11 +10,10 @@ year: 2019
 ---
 
 
-
 <div class="summary">
-In this paper, the authors tackle the problem of "multi-label few-shot learning", where a multi-label classifier is trained with <b>few samples</b> of each object category, and is applied on images that contain potentially <b>new combinations</b> of the category of interest. The key idea of the paper is to synthesize new samples at the <b>feature-level</b>, to mirror unseen combinations of the object category and reduce the train/test distribution shift.
+In this paper, the authors tackle the problem of "multi-label few-shot learning", in which a multi-label classifier is trained with <b>few samples</b> of each object category, and is applied on images that contain potentially <b>new combinations</b> of the categories of interest: For instance seeing . The key idea of the paper is to synthesize new samples at the <b>feature-level</b>, to mirror unseen combinations of the object category and reduce the train/test distribution shift.
 <ul>
-<li><span class="procons">Pros (+):</span> The proposed objective is intuitive and can be seen as a regularization of the feature space to respect set operations, Introduces a benchmark for the proposed problem.</li>
+<li><span class="procons">Pros (+):</span> The proposed objective is intuitive and can be seen as a regularization of the feature space to respect specific set operations; also introduces a benchmark for the proposed problem.</li>
 <li><span class="procons">Cons (-):</span> hard to interpret results, in particular lack of ablation experiments, and there are two different potential train/test shifts which are never distinguished: new unseen classes <b>and</b> new unseen combinations of already seen classes.</li>
 </ul>
 </div>
@@ -82,7 +81,6 @@ However, in practice this performs generally much worse than learning the transf
 Each LaSO network is a 3 or 4 layers standard *Multi-Layer Perceptron*. The training is done in two steps: First, the feature extractor is  *pretrained and fixed* (ResNet-34 or Inception v3 architecture), and then both the feature extractor and the LaSO model are jointly trained. The authors consider two experimental settings:
 
   * **MS-COCO:** The model is trained on 64 classes, while the 16 remaining ones are kept unseen. **First**, they evaluate the semantic accuracy of the label set operation networks: i.e., *do they actually capture the targeted operation* ? It seems to be the case for the intersection and union operations, as the retrieval accuracy is as good as the one achieved on the standard dataset (no manipulation). However, performance of the subtraction network or on the unseen classes are less impressive. **Second,** they evaluate the model for few-shot learning on the *unseen categories*. The proposed method outperforms a few existing baselines on this task. *Note that*, in order to evaluate the model on the unseen categories, they separately train a 16-way classifier on them, used for evaluation. This seems potentially biased as it means the model can not confuse them with already seen classes, which would be a likely source of errors.
-  
-  
-  * **CelebA:** In this case, the multi-label information comes from face attributes. In this setting, they only evaluate the ability of the label set networks to capture their respective set operation. Results are a bit mitigated, as was the case for MS-COCO; only the union operation seems to be really well captured.
 
+
+  * **CelebA:** In this case, the multi-label information comes from face attributes. In this setting, they only evaluate the ability of the label set networks to capture their respective set operation. Results are a bit mitigated, as was the case for MS-COCO; only the union operation seems to be really well captured.

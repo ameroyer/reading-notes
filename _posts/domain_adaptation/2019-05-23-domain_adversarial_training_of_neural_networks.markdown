@@ -9,8 +9,6 @@ thumb: /images/thumbs/dann.png
 year: 2016
 ---
 
-
-
 <div class="summary">
 In this article, the authors tackle the problem of <b>unsupervised domain adaptation</b>: Given labeled samples from a source distribution `\mathcal D_S` and unlabeled samples from target distribution `\mathcal D_T`, the goal is to learn a function that solves the task for both the source and target domains. In particular, the proposed model is trained on <b>both</b> source and target data jointly, and aims to directly learn an <b>aligned representation</b> of the domains, while retaining meaningful information with respect to the source labels.
 <ul>
@@ -63,7 +61,7 @@ $$
 \end{align}
 $$
 
-Additionally `DANN` introduces a *domain prediction branch*, which is another classifier $$G_d$$ on top of the feature representation $$G_f$$ and whose goal is to approximate the domain discrepency as **(2)**, which leads to the following training objective to *maximize*:
+Additionally `DANN` introduces a *domain prediction branch*, which is another classifier $$G_d$$ on top of the feature representation $$G_f$$ and whose goal is to approximate the domain discrepancy as **(2)**, which leads to the following training objective to *maximize*:
 
 $$
 \begin{align}
@@ -104,7 +102,7 @@ $$
 $$
 
 In other words, for the update of $$\theta_d$$, the gradients of $$\mathcal L_d$$ with the respect to activations are computed normally (*minimization*), but they are then propagated with a minus sign in the feature extraction part of the network (*maximization*).
-Augmented with the gradient reversal layer, the final model is standardly trained by minimizing the sum of losses $$\mathcal L_d + \mathcal L_y$$ , which corresponds to the optimization problem in **(1-3)**.
+Augmented with the gradient reversal layer, the final model is trained by minimizing the sum of losses $$\mathcal L_d + \mathcal L_y$$ , which corresponds to the optimization problem in **(1-3)**.
 
 
 <div class="figure">
@@ -132,9 +130,9 @@ Setting hyperparameters is a difficult problem, as we cannot directly evaluate t
 Using these splits, a model $$\eta$$ is trained on $$S'\rightarrow T'$$. Then a second model $$\eta_r$$ is trained for the *reverse direction* on the set $$\{ (x, \eta(x)),\ x \in T'\} \rightarrow S'$$. This reverse classifier $$\eta_r$$ is then finally evaluated on the labeled validation set $$S_V$$, and this accuracy is used as a validation score.
 
 #### Conclusions
-In general, the proposed method seems to perform very well for aligning the source and target domains in an *unsupervised domain adaptation* framework. Its main advantage is its *simplicity*, both in terms of theoretical motivation and  implementation. In fact, the `GRL` is easily implemented in standard Deep Learning frameworks and can be added to any architectures. 
+In general, the proposed method seems to perform very well for aligning the source and target domains in an *unsupervised domain adaptation* framework. Its main advantage is its *simplicity*, both in terms of theoretical motivation and  implementation. In fact, the `GRL` is easily implemented in standard Deep Learning frameworks and can be added to any architectures.
 
-The main shortcomings of the method are that **(i)** all experiments deal with only two sources and extensions *to multiple domains* might require some tweaks (e.g., considering the sum of pairwise discrepancies as an upper-bound) and **(ii)** in practice, training can become *instable* due to the adversary training scheme; In particular, the experiment sections show that some stability tricks have to be used during training, such as using momentum or slowly increasing the contribution of the domain classification branch.
+The main shortcomings of the method are that **(i)** all experiments deal with only two sources and extensions *to multiple domains* might require some tweaks (e.g., considering the sum of pairwise discrepancies as an upper-bound) and **(ii)** in practice, training can become *unstable* due to the adversary training scheme; In particular, the experiment sections show that some stability tricks have to be used during training, such as using momentum or slowly increasing the contribution of the domain classification branch.
 
 
 
@@ -144,15 +142,15 @@ The main shortcomings of the method are that **(i)** all experiments deal with o
 </div>
 ---
 
-<h3 class="section followup">Closely related (follow-up work)</h3>
+<h3 class="section followup">Closely related</h3>
 <h4 style="margin-bottom: 0px"> Conditional Adversarial Domain Adaptation.</h4>
-<p style="text-align: right"><small>Long et al, N(eur)IPS 2018<a href="https://arxiv.org/abs/1705.10667">[link]</a></small></p>
+<p style="text-align: right"><small>Long et al, NeurIPS 2018<a href="https://arxiv.org/abs/1705.10667">[link]</a></small></p>
 > In this work, the  authors propose to for Domain Adversarial Networks. More specifically, the domain classifier is conditioned on the input's class: However, since  part of the samples are unlabeled,  the conditioning uses the *output of the target classifier branch* as a proxy for the class information. Instead of simply concatenating the feature input with the condition, the authors consider a  *multilinear conditioning* technique which relies on the *cross-covariance* operator. Another related paper is <span class="citations">[4]</span>. It also uses the multi-class information of the input domain, although in a simpler way.
 
 ---
 
 <h3 class="section references"> References </h3>
-* <span class="citations">[1]</span> Analysis of representations for Domain Adaptation, <i>Ben-David et al, NIPS 2006</i>
+* <span class="citations">[1]</span> Analysis of representations for Domain Adaptation, <i>Ben-David et al, NeurIPS 2006</i>
 * <span class="citations">[2]</span> Adapting visual category models to new domains, <i>Saenko et al, ECCV 2010</i>
 * <span class="citations">[3]</span> Person re-identification via structured prediction, <i>Zhang and Saligrama, arXiv 2014</i>
 * <span class="citations">[4]</span> Multi-Adversarial Domain Adaptation, <i>Pei et al, AAAI 2018</i>

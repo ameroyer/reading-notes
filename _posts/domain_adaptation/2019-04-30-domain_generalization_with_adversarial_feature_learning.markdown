@@ -79,7 +79,7 @@ $$
 which is 0 if and only if all the domain distributions are equal. Finally, this quantity is hard to compute but can be upper-bounded by a sum of pairwise `MMD`s:
 
 $$
-\begin{align} 
+\begin{align}
 \mathcal{L}_{\text{MMD}}  = \frac{1}{K^2} \sum_{1 \leq i, j \leq K} \text{MMD}(\mathcal{P}_i, \mathcal{P}_j) \tag{MMD loss}
 \end{align}
 $$

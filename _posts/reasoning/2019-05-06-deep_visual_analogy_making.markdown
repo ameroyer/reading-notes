@@ -2,9 +2,9 @@
 layout: post
 title: "Deep Visual Analogy Making"
 date: 2019-05-06 12:40:24 +0200
-tags: [visual reasoning, 2015, nips, visalogy]
+tags: [visual reasoning, neurips, 2015]
 categories: [Visual Reasoning]
-author: Reed et al., NIPS 2015, <a href='https://papers.nips.cc/paper/5845-deep-visual-analogy-making.pdf'>[link]</a>
+author: Reed et al., NeurIPS 2015, <a href='https://papers.nips.cc/paper/5845-deep-visual-analogy-making.pdf'>[link]</a>
 thumb: /images/thumbs/dvam.png
 year: 2015
 ---
@@ -21,7 +21,7 @@ In this paper, the authors propose to learn <b>visual analogies</b> akin to the 
 
 <h3 class="section proposed"> Proposed Model</h3>
 
-***Definition.*** Informally, a visual analogy, denoted by "**a:b :: c:d**", means that the entity **a** is to **b** what the entity **c** is to **d**. In particular , this paper focuses on the problem of generating image **d** after inferring the relation **a:b** and given a source image **c**.
+**Definition:** <i>Informally, a visual analogy, denoted by "**a:b :: c:d**", means that the entity **a** is to **b** what the entity **c** is to **d**. This paper focuses on the problem of generating image **d** after inferring the relation **a:b** and given a source image **c**.</I>
 
 The authors propose to use an encoder-decoder based model for generation and to model analogies as *simple transformations of the latent space*, for instance addition between vectors, as was the case in words embeddings such as `GloVe` <span class="citations">[2]</span> or `Word2Vec` <span class="citations">[1]</span>.
 
@@ -144,4 +144,4 @@ $$
 <h3 class="section references"> References</h3>
    * <span class="citations">[1]</span> Distributed representations of words and phrases and their compositionality, <i>Mikolov et al., NIPS 2013</i>
    * <span class="citations">[2]</span> GloVe: Global Vectors for Word Representation, <i>Pennington et al., EMNLP 2014</i>
-   * <span class="citations">[3]</span> Visalogy: Answering Visual Analogy Questions, <i>Sadeghi et al., NIPS 2015</i>
+   * <span class="citations">[3]</span> Visalogy: Answering Visual Analogy Questions, <i>Sadeghi et al., NeurIPS 2015</i>

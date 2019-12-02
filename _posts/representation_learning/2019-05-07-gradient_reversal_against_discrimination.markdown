@@ -13,7 +13,7 @@ year: 2018
 <div class="summary">
 
 <ul>
-In this work, the authors tackle the problem of learning <b>fair representations</b>, i.e. representations that should be insensitive to some given sensitive attribute, while retaining enough information to solve the task at hand. 
+In this work, the authors tackle the problem of learning <b>fair representations</b>, i.e. representations that should be insensitive to some given sensitive attribute, while retaining enough information to solve the task at hand.
 Given some input data `x` and attribute `a_p`, the task is to predict label `y` from `x` while making the attribute `a_p` <b>protected</b>, in other words, such that predictions are invariant to changes in `a_p`.
 <li><span class="procons">Pros (+):</span> Simple and intuitive idea, easy to train, naturally extend to protecting multiple attributes.</li>
 <li><span class="procons">Cons (-):</span> Comparison to baselines could be more detailed / comprehensive, in particular the comparison to <code>ALFR</code> <span class="citations">[4]</span> which also relies on adversarial training.</li>
@@ -37,11 +37,11 @@ $$
 \end{align}
 $$
 
-The gradient updates for this saddle point problem can be efficiently implemented using the *Gradient Reversal Layer* introduced in <span class="citations">[1]</span>.
+The gradient updates for this saddle point problem can be efficiently implemented using the *Gradient Reversal Layer*  introduced in <span class="citations">[1]</span>.
 
 #### GRAD-pred
-In **G**radient **R**eversal **A**gainst **D**iscrimination, samples come only from one domain $$\mathcal X$$, and the domain classifier $$G_d$$ is replaced by an *attribute* classifier, $$G_p$$, whose goal is to predict the value of the protected attribute $$a_p$$. 
-In other words, the training objective strives to build a feature representation of $$x$$ that is good enough to predict the correct label $$y$$ but such that $$a_p$$ cannot easily be deduced from it. 
+In **G**radient **R**eversal **A**gainst **D**iscrimination (`GRAD`), samples come only from one domain $$\mathcal X$$, and the domain classifier $$G_d$$ is replaced by an *attribute* classifier, $$G_p$$, whose goal is to predict the value of the protected attribute $$a_p$$.
+In other words, the training objective strives to build a feature representation of $$x$$ that is good enough to predict the correct label $$y$$ but such that $$a_p$$ cannot easily be deduced from it.
 
 
 
@@ -62,7 +62,7 @@ The authors also consider a variant of the described model where the target bran
 
 <h3 class="section sota"> Baselines </h3>
 
- * **Vanilla:** A `CNN` trained without the protected attribute protection branch
+ * **`Vanilla`**: A `CNN` trained without the protected attribute protection branch
  * **`LFR`** <span class="citations">[2]</span>: A classifier with an intermediate latent code $$Z \in \{1 \dots K\}$$ is trained with an objective that combines a classification loss (the model should accurately classify $x$), a reconstruction loss (the learned representation should encode enough information about the input to reconstruct it accurately) and a parity loss (estimate the probability $$P(Z=z \vert x)$$ for both populations with $$a_p = 1$$ and $$a_p = -1$$ and strive to make them equal)
  * **`VFA`** <span class="citations">[3]</span>: A `VAE` where the protected attribute $$a_p$$ is factorized out of the latent code $z$, and additional invariance is imposed via a `MMD` objective which tries to match the moments of the posterior distributions $$q(z \vert a_p = -1)$$ and $$q(z \vert a_p = 1)$$.
  * **`ALFR`** <span class="citations">[4]</span> : As in `LFR`, this paper proposes a model trained with a reconstruction loss and a classification loss. Additionally, they propose to quantify the dependence between the learned representation and the protected attribute by adding an adversary classifier that tries to extract the attribute value from the representation, formulated and trained as in the Generative Adversarial Network (`GAN`) setting.
@@ -73,7 +73,7 @@ The authors also consider a variant of the described model where the target bran
 
 `GRAD` always reaches *highest consistency* compared to baselines. For the other metrics, the results are more mitigated, although it usually achieves best or second best results. It is also not clear how to choose between `GRAD-pred` and `GRAD-auto` as there does not seem to be a clear winner, although `GRAD-pred` is a more intuitive solution when supervision is available, as it directly solves the classification task.
 
-Authors also report a small experiment showing that *protecting several attributes at once* can be more beneficial than protecting a single attribute. This can be expected as some attributes are highly correlated or interact in meaningful way. 
+Authors also report a small experiment showing that *protecting several attributes at once* can be more beneficial than protecting a single attribute. This can be expected as some attributes are highly correlated or interact in meaningful way.
 In particular, protecting several attributes at once can easily be done in the `GRAD` framework by making the attribute prediction branch multi-class for instance: however it is not clear in the paper how it is actually done in practice, nor whether the same  idea could also be integrated in the baselines for further comparison.
 
 ---

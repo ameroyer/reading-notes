@@ -21,7 +21,7 @@ In this paper, the authors tackle the problem of learning classifiers of visual 
 
 
 <h3 class="section proposed"> Proposed model</h3>
-The main idea of the proposed method is to learn how to composite visual concepts (here: object categories and attributes) at the *feature-level*. Each visual concept $$c$$ is represented by a linear classifier $$\phi_c: x \mapsto\ x \cdot w_c$$ that has been trained to recognize it. The model then learns to compose such linear classifier by feeding them to a ***Transformation Network***, $$T$$, which in turn outputs another classifier, which should capture the composition of the two input concepts.
+The main idea of the proposed method is to learn how to composite visual concepts (here: object categories and attributes) at the *feature-level*. Each visual concept $$c$$ is represented by a linear classifier $$\phi_c: x \mapsto\ x \cdot w_c$$ that has been trained to recognize it. The model then learns to compose such linear classifier by feeding them to a *Transformation Network*, $$T$$, which in turn outputs another classifier, which should capture the composition of the two input concepts.
 
 <div class="figure">
 <img src="{{ site.baseurl }}/images/posts/composition_with_context.png">
@@ -29,11 +29,11 @@ The main idea of the proposed method is to learn how to composite visual concept
 </div>
 
 The input concepts are split in two categories (e.g., objects and attributes) which can be combined. For each of them, a *linear binary classifier* (SVM) is trained to detect the concept, based on some pre-trained feature extractor $$\phi$$.  The goal is to learn the composition operation, which could be applied to even new combinations of the concepts, unseen during training.
-$$T$$ is parameterized as a *3 layer Multi-Layer Perceptron* and trained with the following loss:
+$$T$$ is parametrized as a *3 layer Multi-Layer Perceptron* and trained with the following loss:
 
 $$
 \begin{align}
-\mathcal{L}(x, a, b) = \ell(\text{sigmoid} ( T(w_a, w_b) \cdot \phi(x)), y) 
+\mathcal{L}(x, a, b) = \ell(\text{sigmoid} ( T(w_a, w_b) \cdot \phi(x)), y)
 \end{align}
 $$
 
@@ -49,7 +49,7 @@ The feature extractor used in the experiments is a `VGG-M-1024` network *pretrai
   * **Individual:** Only uses one of the modalities, e.g., $$p(ab) = \max(p(a), p(b))$$.
   * **Visual product:** Classify complex concepts under independence assumption, $$p(ab) = p(a) p(b)$$.
   * **Label Embeddings:** <span class="citations">[1, 2]</span> The transformation network is learned on *word embeddings* of the visual concepts as inputs.
-  
+
 
 
 Interestingly the **Individual-Obj** baseline that considers only the object category performs quite well in terms of average precision. This suggest the object category is more significant than the attribute prediction. Finally, the proposed model outperforms the baselines but still produces poor overall performance in terms of classification accuracy, so *it is not clear how much is really due to generalization to new concept combinations*. Ablation and qualitative experiments do show that the model learns some meaningful information about composition, however the gain seems to depend a lot on the actual object and attribute combined.

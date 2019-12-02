@@ -27,7 +27,7 @@ This paper introduces  the *Procedurally Generated Matrices* (PGM) dataset. It i
 
 <div class="figure">
 <img src="{{ site.baseurl }}/images/posts/marinn.png">
-<p><b>Figure:</b>  An example of PGM (<b>left</b>)) and depiction of reation types (<b>right</b>)</p>
+<p><b>Figure:</b>  An example of PGM (<b>left</b>)) and depiction of relation types (<b>right</b>)</p>
 </div>
 
 #### Construction
@@ -40,7 +40,7 @@ A PGM is defined as a set of triples $$(r, o, a)$$, each encoding a particular r
 
 Note that some relations are hard to define (for instance progression on shape position ?), and hence ignored. In total, *29* possible relations triples are considered.
 
-The attributes which are not involved in any of the relations of the PGM are called the *nuisance attributes*. They are chosen either as a fixed value for all images in the sequence, or randomly assigned (*distracting setting*). 
+The attributes which are not involved in any of the relations of the PGM are called the *nuisance attributes*. They are chosen either as a fixed value for all images in the sequence, or randomly assigned (*distracting setting*).
 
 
 #### Evaluation Setting
@@ -108,18 +108,19 @@ As for relations, `XOR` and `progression` are the hardest to solve although the 
 
 <h3 class="section followup">Closely related work</h3>
 
-<h4 style="margin-bottom: 0px"> Improving Generalization for Abstract Reasoning Tasks Using Disentangled Feature Representations.</h4>
-<p style="text-align: right"><small>Steenbrugge et al., <a href="https://arxiv.org/abs/1811.04784">[link]</a></small></p>
+<h4 style="margin-bottom: 0px"> Improving Generalization for Abstract Reasoning Tasks Using Disentangled Feature Representations  <span class="citations">[4]</span></h4>
+<p style="text-align: left">Steenbrugge et al., <a href="https://arxiv.org/abs/1811.04784">[link]</a></p>
 
-> The main observation is that the previously proposed model seems to *disregard high-level abstract relations* (e.g. considering the poor accuracy on the extrapolation set). this paper proposes to improve the encoding step by embedding the panel in a *"disentangled"* space using a $$\beta$$-VAE. 
+> The main observation is that the previously proposed model seems to *disregard high-level abstract relations* (e.g. considering the poor accuracy on the extrapolation set). this paper proposes to improve the encoding step by embedding the panel in a *"disentangled"* space using a $$\beta$$-VAE.
 
 > There are also a few weird details in the experimental section. For instance, they claim the RN embedding has dimension 512, while it has dimension 256 (it only becomes 512 whe concatenating in $$g_{\theta}$$). Second, they use a VAE embedding has latent dimension 64 and it's not clear why they wouldn't use more dimensions for a fairer comparison. The encoder used is also two layers deeper .
 
 > The model yields some improvement, especially on the more challenging settings (roughly 5% at best). They however omit results in the extrapolation regime.
 
 
-<h4 style="margin-bottom: 0px"> RAVEN: A Dataset for Relational and Analogical Visual rEasoNing.</h4>
-<p style="text-align: right"><small>Zhang et al., CVPR 2019 <a href="https://arxiv.org/pdf/1903.02741.pdf">[link]</a></small></p>
+<h4 style="margin-bottom: 0px"> RAVEN: A Dataset for Relational and Analogical Visual rEasoNing <span class="citations">[5]</span></h4>
+<p style="text-align: left">Zhang et al., <a href="https://arxiv.org/pdf/1903.02741.pdf">[link]</a></p>
+
 >This paper is conceptually very similar to " Measuring abstract reasoning in neural networks", they also propose a new dataset for visual reasoning based on *Raven matrices** and evaluate several baselines in various testing settings.
 
 > The dataset generation process is formulated as a *grammar*  the generated language defining instances of `PGM` matrices.  Compared to the `PGM` dataset, they stick closer to the definition of Advanced Raven Progressive Matrices as defined in <span class="citations">[2]</span>, and the distribution of rules seems to be quite different from the `PGM` dataset, for instance, rules only apply row-wise. They design 5 rule-governing attributes and 2 noise attributes. Each rule-governing attribute goes over one of 4 rules, and objects in the same component share the same set of rules, making *in total 440, 000 rule annotations and an average of 6.29 rules per problem*.
@@ -137,11 +138,11 @@ As for relations, `XOR` and `progression` are the hardest to solve although the 
   * `Constant`: Which I would hardly count as a rule
   * `Arithmetic`: XOR, OR, AND
   * `Distribute Three`: Equivalent to Consistent Union
-  
- 
+
+
 > The authors want to make use of the annotated structure of the generated matrics using a *Dynamic Residual Tree* (`DRT`).  Each Raven matrix, corresponds to a sentence sampled from the Grammar, and as such can also be represented as an *annotated* tree, $$T$$, from scene to entities.  The authors them build a *residual module* where single layers are `ReLU`-activated fully-connected layers, wired according to the tree structure similar to `Tree-LSTM`.  More specifically, let us denote by  $$w_n$$ the label of node $$n$$. Each node correspond to one layer in the residual module, as follows:
- * For nodes with a single child (e.g., scene) or leaves (e.g., entities) : 
- 
+ * For nodes with a single child (e.g., scene) or leaves (e.g., entities) :
+
 $$
 \begin{align}
      x \mapsto \mbox{ReLU}(fc([x, w_n]))
@@ -155,19 +156,19 @@ $$
      x_1, \dots x_C \mapsto \mbox{ReLU}(fc(\left[\sum_c x_c , w_n\right]))
  \end{align}
  $$
- 
+
  > In summary, the `DRT` module is given the input image which is fed to the nodes, *starting from the leaves and going up to the root, scene, node*. Finally it is made into a residual module by adding it to the input features. in other words:
- 
+
  $$
  \begin{align}
  x \mapsto DRT(x, T) + x
  \end{align}
   $$
-  
+
 > For experiments, the baselines include the *Wild Relation Network* (`WReN`) from, the **CNN** network from <span class="citations">[3]</span> that performs direct prediction, a `ResNet-18` Network and a `LSTM`. They also have *human performance baselines*, where the test subjects are non-expert but do have some knowledge of Raven matrices. Finally, they also have an 'oracle' baseline (solver), which has full knowledge of the relational structure, in which case the problem is reduced to finding the correct assignment. Finally, they augment each module with a `DRT` residual block, which usually they only introduce at the penultimate layer level. Except for the `WReN`, where the `DRT` is used at the end of the `CNN` encoder, i.e. before the relational module
-  
+
   > Overall the experiments results are interesting, but leads to some trange conclusions:
-   * **(i)** As was shown in the `WReN` paper, the `LSTM` baseline performs rather badly. What is more surprising however is that the `WReN` performs significantly worse than the `ResNet` **and** the `CNN` baseline. In the base `WReN` architecture, the encoder was rather small and not thin, while here it is also compared to models that use`ResNet` as a base encoder hence  *it is not clear if this a failure from the relational network itself or from e.g. the encoder*. 
+   * **(i)** As was shown in the `WReN` paper, the `LSTM` baseline performs rather badly. What is more surprising however is that the `WReN` performs significantly worse than the `ResNet` **and** the `CNN` baseline. In the base `WReN` architecture, the encoder was rather small and not thin, while here it is also compared to models that use`ResNet` as a base encoder hence  *it is not clear if this a failure from the relational network itself or from e.g. the encoder*.
    * **(ii)** In all cases the `DRT` module seems to provide a small boost in predictoin accuracy
    * **(iii)** Much more strange is that the authors report a *significant decrease in accuracy* when using auxillary training. More specifically, it does not impact the `WReN` results, but the accuracy of the `ResNet` + `DRT` model drops from 60%s to 21%, which is extremely counter-intuitive.
    * **(iv)** Finally, they do some generalization experiments, but only on *different layouts*, e.g. train on images with `Center` layout and test on `3x3 grid`. But again, this seems to test more the capacity of the encoder to adapt to several visual domain shifts, rather than the ability to generalize to *new relations*.
@@ -175,6 +176,8 @@ $$
 ---
 
 <h3 class="section references"> References </h3>
-* <span class="citations">[1]</span> A simple neural network module for relational reasoning, <i>Santoro et al., NIPS 2017</i>
+* <span class="citations">[1]</span> A simple neural network module for relational reasoning, <i>Santoro et al., NeurIPS 2017</i>
 * <span class="citations">[2]</span> What one intelligence test measures: a theoretical account of the processing in the raven progressive matrices test, <i>Carpenter et al</i>
-* <span class="citations">[3]</span> The IQ of Neural Networks, <i> Hoshen and Werman, 2017</i>
+* <span class="citations">[3]</span> IQ of Neural Networks, <i> Hoshen and Werman, arXiv 2017</i>
+* <span class="citations">[4]</span> Improving Generalization for Abstract Reasoning Tasks Using Disentangled Feature Representations, <i>Steenbrugge et al, arXiv 2017</i>
+* <span class="citations">[5]</span> RAVEN: A Dataset for Relational and Analogical Visual rEasoNing, <i> Zhang et al, CVPR 2019</i>

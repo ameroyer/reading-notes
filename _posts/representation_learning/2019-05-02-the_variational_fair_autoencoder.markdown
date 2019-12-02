@@ -96,8 +96,8 @@ In the **Domain Adaptation** task, the authors mostly compare to the `DANN` <spa
 
 <h3 class="section references"> References </h3>
 * <span class="citations">[1]</span> Autoencoding Variational Bayes, <i>Kingma and Welling, ICLR 2014</i>
-* <span class="citations">[2]</span> A Kernel Method for the Two-Sample-Problem, <i>Gretton et al, NIPS 2006</i>
+* <span class="citations">[2]</span> A Kernel Method for the Two-Sample-Problem, <i>Gretton et al, NeurIPS 2006</i>
 * <span class="citations">[3]</span> Learning Fair Representations, <i>Zemel et al, ICML 2013</i>
 * <span class="citations">[4]</span> Domain-Adversarial Training of Neural Networks, <i>Ganin et al., JMLR 2016</i>
-* <span class="citations">[5]</span> Random Features for Large-Scale Kernel Machines, <i>Rahimi and Recht, NIPS 2007</i>
+* <span class="citations">[5]</span> Random Features for Large-Scale Kernel Machines, <i>Rahimi and Recht, NeurIPS 2007</i>
 * <span class="citations">[6]</span> FastMMD: Ensemble of Circular Discrepancy for Efficient Two-Sample Test, <i>Zhao and Meng, Neural Computation 2015</i>

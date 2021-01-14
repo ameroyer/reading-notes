@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "A Style-Based Generator Architecture for Generative Adversarial Networks"
-date:   2021-14-01 14:59:24 +0200
+date:   2021-01-14 14:59:24 +0200
 tags: [generative models, cvpr, 2019]
 categories:  [Generative Models]
 author: Karras et al, CVPR 2019, <a href='https://arxiv.org/abs/1812.04948' target='_blank'>[link]</a>
